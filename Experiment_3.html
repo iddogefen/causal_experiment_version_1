@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jspsych/jspsych.js"></script>
+    <script src="jspsych-order.js"></script>
+    <script src="jspsych/plugins/jspsych-html-button-response.js"></script>
+    <script src="jspsych/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="jspsych/plugins/jspsych-survey-text.js"></script>
+
+    <script src="Tools/Functions.js"></script>
+    <script src="Tools/jQuery.js"></script>
+    <!--<script src="jspsych/plugins/jspsych-preload.js"></script>-->
+
+
+    <link rel="stylesheet" href="jspsych/css/jspsych.css">
+  </head>
+  <body>
+</body>
+  <script>
+    var timeline = [];
+    var rts =[];
+
+    var trial_1 = {
+
+      type: 'order',
+      stimuli: ['5_5','5_7','5_6','5_8'],
+      button_label:  'Continue when done',
+  
+    }
+    timeline.push(trial_1);
+
+
+    var trial_2 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_2);
+
+
+var trial_3 = {
+
+type: 'survey-text',
+type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_3);
+
+    var trial_4 = {
+
+      type: 'order',
+      stimuli: ['2_3','2_1','2_4','2_2'],
+      button_label:  'Continue when done',
+    
+  
+    }
+    timeline.push(trial_4);
+
+    var trial_5 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_5);
+
+
+var trial_6 = {
+
+type: 'survey-text',
+type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_6);
+
+    
+    var trial_7 = {
+
+      
+      type: 'order',
+      stimuli: ['7_7','7_5','7_8','7_6'],
+      button_label:  'Continue when done',
+
+    }
+    timeline.push(trial_7);
+
+    var trial_8 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_8);
+
+
+var trial_9 = {
+
+type: 'survey-text',
+type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_9);
+
+    
+    var trial_10 = {
+
+      type: 'order',
+      stimuli: ['9_6','9_8','9_5','9_7'],
+      button_label:  'Continue when done',
+
+
+    }
+    timeline.push(trial_10);
+
+
+    var trial_11 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_11);
+
+
+var trial_12 = {
+
+type: 'survey-text',
+type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_12);
+        
+    var trial_13 = {      
+
+      type: 'order',
+      stimuli: ['1_5','1_6','1_8','1_3'],
+      button_label:  'Continue when done',
+     
+    }
+    timeline.push(trial_13);
+
+    var trial_14 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_14);
+
+
+var trial_15 = {
+
+type: 'survey-text',
+type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_15);
+
+            
+var trial_16 = {
+
+
+  type: 'order',
+  stimuli: ['4_3','4_4','4_1','4_2'],
+  button_label:  'Continue when done',  
+
+}
+timeline.push(trial_16);
+
+
+var trial_17 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_17);
+
+
+var trial_18 = {
+
+type: 'survey-text',
+type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_18);
+
+
+                
+    var trial_19 = {
+
+      type: 'order',
+      stimuli: ['8_2','8_1','8_3','8_4'],
+      button_label:  'Continue when done',
+
+    }
+    timeline.push(trial_19);
+
+    var trial_20 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_20);
+
+
+var trial_21 = {
+
+type: 'survey-text',
+type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_21);
+
+
+    var trial_22 = {
+
+      type: 'order',
+      stimuli: ['3_5','3_6','3_7','3_8'],
+      button_label:  'Continue when done',  
+
+    }
+    timeline.push(trial_22);
+
+
+    var trial_23 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_23);
+
+
+var trial_24 = {
+
+type: 'survey-text',
+type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_24);
+
+
+    var trial_25 = {
+
+type: 'order',
+stimuli: ['6_1','6_4','6_3','6_2'],
+button_label:  'Continue when done',
+
+    }
+    timeline.push(trial_9);
+
+    var trial_26 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_26);
+
+
+var trial_27 = {
+
+type: 'survey-text',
+type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_27);
+
+    jsPsych.init({
+      timeline: [trial_1,trial_2, trial_3,trial_4, trial_5, trial_6,trial_7, trial_8, trial_9,
+      trial_10,trial_11,trial_12,trial_13,trial_14,trial_15,trial_16,trial_17,trial_18,trial_19,
+    trial_20, trial_21,trial_22,trial_22,trial_23,trial_24,trial_25,trial_26,trial_27],
+      on_finish: function(){
+        jsPsych.data.get().localSave('csv','mydata.csv');
+        jsPsych.data.displayData();
+
+      }
+    })
+  </script>
+</html>
