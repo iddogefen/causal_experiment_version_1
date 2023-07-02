@@ -135,7 +135,7 @@ function save_local_data(name, data){
 function save_local_data(filename, data){
   $.ajax({
     type: 'POST',
-    url: '/Tools/write_data_local.php', // Replace this URL with the URL of your PHP script
+    url: 'http://localhost:8000/Tools/write_data_local.php', // Replace this URL with the URL of your PHP script
     data: {
       data: data,
       filename: filename
