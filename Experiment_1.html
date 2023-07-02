@@ -10,15 +10,21 @@
     <script src="Tools/Functions.js"></script>
     <script src="Tools/jQuery.js"></script>
     <!--<script src="jspsych/plugins/jspsych-preload.js"></script>-->
-
-
+    
     <link rel="stylesheet" href="jspsych/css/jspsych.css">
   </head>
   <body>
 </body>
   <script>
+
+var data_folder             = '../Data/Individual_data/'
+var int_data_folder         = '../Data/Interactive_data/'
+var tools_folder            = 'Tools'
+
+
     var timeline = [];
     var rts =[];
+    var events = [];
 
     var trial_1 = {
       type: 'order',
@@ -194,7 +200,18 @@
         jsPsych.data.get().localSave('csv','mydata.csv');
         jsPsych.data.displayData();
 
-      }
-    })
+      },
+
+      on_finish: function() {
+          save_local_data(data_folder+'All_data/all_data_sub_'+".csv", jsPsych.data.get().ignore('stimulus').csv());
+          save_local_data(int_data_folder+'int_data_sub_'+".csv", jsPsych.data.getInteractionData().csv());
+          save_server_data(data_folder+'All_data/all_data_sub_'+".csv", jsPsych.data.get().ignore('stimulus').csv());
+          save_server_data(int_data_folder+'int_data_sub_'+".csv", jsPsych.data.getInteractionData().csv());
+        }
+      } // on_finish
+
+
+
+    )
   </script>
 </html>
