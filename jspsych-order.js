@@ -166,6 +166,7 @@ rt: rt};
         let tile = document.createElement("img");
         tile.src = "./images/" + trial.stimuli[i] + ".jpg";
         tile.id = trial.stimuli[i];
+        console.log(tile.id)
         
 
 
@@ -215,6 +216,13 @@ rt: rt};
   
   function dragDrop() {
       otherTile = this;
+      console.log(tile.id);
+      moves.push({
+        src: otherTile.src,
+        x: Math.round(rect_2.x),
+        y: Math.round(rect_2.y),
+        move_time : move_time_3
+      });
 
   }
 
@@ -237,7 +245,7 @@ rt: rt};
       move_time : move_time_3
     });
           
-    console.log(a,rect_2.top, rect_2.right, rect_2.bottom, rect_2.left);
+    console.log(otherTile,rect_2.top, rect_2.right, rect_2.bottom, rect_2.left,);
     move_time_1 = move_time_2;
     move_time_3
     turns += 1;

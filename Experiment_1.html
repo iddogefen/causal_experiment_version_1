@@ -25,6 +25,21 @@ var tools_folder            = 'Tools'
     var timeline = [];
     var rts =[];
     var events = [];
+    var subject = 1;
+
+    // generate a random subject ID with 15 characters
+var subject_id = Date.now();
+
+// pick a random condition for the subject at the start of the experiment
+var condition_assignment = jsPsych.randomization.sampleWithoutReplacement(['conditionA', 'conditionB', 'conditionC'], 1)[0];
+
+// record the condition assignment in the jsPsych data
+// this adds a property called 'subject' and a property called 'condition' to every trial
+jsPsych.data.addProperties({
+  subject: subject_id,
+  condition: condition_assignment
+});
+
 
     var trial_1 = {
       type: 'order',
@@ -196,17 +211,15 @@ var tools_folder            = 'Tools'
     jsPsych.init({
       timeline: [trial_1,trial_2, trial_3,trial_4, trial_5, trial_6,trial_7, trial_8, trial_9,
       trial_10,trial_11,trial_12,trial_13,trial_14, trial_15, trial_16, trial_17, trial_18, trial_19],
-      on_finish: function(){
-        jsPsych.data.get().localSave('csv','mydata.csv');
-        jsPsych.data.displayData();
-
-      },
 
       on_finish: function() {
-          save_local_data(data_folder+'All_data/all_data_sub_'+".csv", jsPsych.data.get().ignore('stimulus').csv());
-          save_local_data(int_data_folder+'int_data_sub_'+".csv", jsPsych.data.getInteractionData().csv());
-          save_server_data(data_folder+'All_data/all_data_sub_'+".csv", jsPsych.data.get().ignore('stimulus').csv());
-          save_server_data(int_data_folder+'int_data_sub_'+".csv", jsPsych.data.getInteractionData().csv());
+        jsPsych.data.displayData();
+        jsPsych.data.get().localSave('json','mydata.csv');
+          save_local_data(data_folder+'All_data/all_data_sub_'+subject_id+".json", jsPsych.data.get().ignore('stimulus').json());
+          save_local_data(int_data_folder+'int_data_sub_'+subject_id +".json", jsPsych.data.getInteractionData().json());
+          save_server_data(data_folder+'All_data/all_data_sub_'+subject_id+".json", jsPsych.data.get().ignore('stimulus').json());
+          save_server_data(int_data_folder+'int_data_sub_'+subject_id+".json", jsPsych.data.getInteractionData().json());
+          subject=subject+1;
         }
       } // on_finish
 
