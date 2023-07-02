@@ -214,8 +214,10 @@ jsPsych.data.addProperties({
 
       on_finish: function() {
         jsPsych.data.displayData();
-        save_local_data(int_data_folder+'int_data_sub_'+subject_id +".json", jsPsych.data.getInteractionData().json());
-        save_server_data(int_data_folder+'int_data_sub_'+subject_id+".json", jsPsych.data.getInteractionData().json());
+          save_local_data(data_folder+'All_data/all_data_sub_'+subject_id+".json", jsPsych.data.get().json());
+          save_local_data(int_data_folder+'int_data_sub_'+subject_id +".json", jsPsych.data.getInteractionData().json());
+          save_server_data(data_folder+'All_data/all_data_sub_'+subject_id+".json", jsPsych.data.get().json());
+          save_server_data(int_data_folder+'int_data_sub_'+subject_id+".json", jsPsych.data.getInteractionData().json());
         }
       } // on_finish
 
