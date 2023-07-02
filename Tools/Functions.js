@@ -151,6 +151,24 @@ function save_local_data(filename, data){
   });
 }
 
+function save_local_data_2(filename, data){
+  $.ajax({
+    type: 'POST',
+    url: 'Tools/write_data_local.php', // Replace this URL with the URL of your PHP script
+    data: {
+      data: data,
+      filename: filename
+    },
+    success: function(response) {
+      console.log(response);
+      console.log("yes");// Log the response from the PHP script
+    },
+    error: function(xhr, status, error) {
+      console.error(error); // Log any errors that occur
+    }
+  });
+}
+
 // Time stamp for files
 function timeStamp() {
   function s(x) {
