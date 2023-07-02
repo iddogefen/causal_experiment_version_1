@@ -132,6 +132,7 @@ function save_local_data(name, data){
 }
 */
 
+/*
 function save_local_data(filename, data){
   $.ajax({
     type: 'POST',
@@ -150,7 +151,7 @@ function save_local_data(filename, data){
   });
 }
 
-
+*/
 // Time stamp for files
 function timeStamp() {
   function s(x) {
