@@ -220,9 +220,9 @@ jsPsych.data.addProperties({
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({filedata: data}));
 }
-        saveData(jsPsych.data.get().csv());
-        save_server_data(data_folder+'All_data/all_data_sub_'+subject_id+".csv", jsPsych.data.get().ignore('stimulus').csv());
-        save_server_data(int_data_folder+'int_data_sub_'+subject_id+".csv", jsPsych.data.getInteractionData().csv());
+saveData(jsPsych.data.get().csv());
+        //save_server_data(data_folder+'All_data/all_data_sub_'+subject_id+".csv", jsPsych.data.get().ignore('stimulus').csv());
+        //save_server_data(int_data_folder+'int_data_sub_'+subject_id+".csv", jsPsych.data.getInteractionData().csv());
         jsPsych.data.displayData();
           //save_local_data(data_folder+'All_data/all_data_sub_'+subject_id+".json", jsPsych.data.get().json());
           //save_local_data(int_data_folder+'int_data_sub_'+subject_id +".json", jsPsych.data.getInteractionData().json());
