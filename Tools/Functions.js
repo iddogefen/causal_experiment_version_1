@@ -143,7 +143,7 @@ function save_local_data(name, data){
    a.click();
 }
 */
-
+/*
 
 function save_local_data(filename, data){
   $.ajax({
@@ -162,6 +162,7 @@ function save_local_data(filename, data){
     }
   });
 }
+*/
 
 function save_local_data_2(filename, data){
   $.ajax({

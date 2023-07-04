@@ -12,4 +12,4 @@ This tutorial covers creating a new plugin. I create a plugin for the moving win
 
 ## Experiment link
 
-[Try the completed experiment](https://jspsych.github.io/tutorials/moving-window/)
+[Try the completed experiment](https://jspsych.github.io/tutorials/moving-window/)#transitive_inference
