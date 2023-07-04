@@ -17,6 +17,18 @@
 </body>
   <script>
 
+function saveData(name, data){
+  var xhr = new XMLHttpRequest();
+  xhr.open('POST', 'write_data.php'); // 'write_data.php' is the path to the php file described above.
+  xhr.setRequestHeader('Content-Type', 'application/json');
+  xhr.send(JSON.stringify({filedata: data}));
+}
+
+// call the saveData function after the experiment is over
+initJsPsych({
+   on_finish: function(){ saveData(jsPsych.data.get().csv()); }
+});
+
 var data_folder             = '../Data/Individual_data/'
 var int_data_folder         = '../Data/Interactive_data/'
 var tools_folder            = 'Tools'
@@ -219,7 +231,7 @@ jsPsych.data.addProperties({
           //save_local_data_2(data_folder+'All_data/all_data_sub_'+subject_id+".json", jsPsych.data.get().json());
           //save_local_data_2(int_data_folder+'int_data_sub_'+subject_id +".json", jsPsych.data.getInteractionData().json());
           //save_server_data(data_folder+'All_data/all_data_sub_'+subject_id+".json", jsPsych.data.get().json());
-          save_server_data(int_data_folder+'int_data_sub_'+subject_id+".cvs", jsPsych.data.getInteractionData().cvs());
+          //save_server_data(int_data_folder+'int_data_sub_'+subject_id+".json", jsPsych.data.getInteractionData().json());
         }
       } // on_finish
 
