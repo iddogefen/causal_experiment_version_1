@@ -111,17 +111,15 @@ function transpose(a) {
 
 function saveData(name, data){
   var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'write_data_1.php'); // 'write_data.php' is the path to the php file described above.
+  xhr.open('POST', 'Tools/write_data_1.php'); // 'write_data.php' is the path to the php file described above.
   xhr.setRequestHeader('Content-Type', 'application/json');
   xhr.send(JSON.stringify({filedata: data}));
 }
 
 // call the saveData function after the experiment is over
-initJsPsych({
-   on_finish: function(){ saveData(jsPsych.data.get().JSON()); }
-});
 
 /*
+
 // Save data to file functions
 function save_server_data(name, data) {
   var xhr = new XMLHttpRequest();
@@ -134,7 +132,7 @@ function save_server_data(name, data) {
   }));
 }
 
-
+/*
 
 function save_local_data(name, data){
    var a         = document.createElement('a');
