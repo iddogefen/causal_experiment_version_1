@@ -1,5 +1,4 @@
 
-
 function save_server_data(name, data) {
   var xhr = new XMLHttpRequest();
   //xhr.addEventListener("load", onComplete);
