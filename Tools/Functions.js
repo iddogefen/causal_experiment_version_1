@@ -32,7 +32,6 @@ function saveData(name, data){
 
 // Save data to file functions
 
-*/
 
 function save_local_data(name, data){
    var a         = document.createElement('a');
@@ -45,6 +44,7 @@ function save_local_data(name, data){
 
 
 
+*/
 function save_local_data(filename, data){
   $.ajax({
     type: 'POST',
