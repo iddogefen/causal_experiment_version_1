@@ -5,4 +5,5 @@ $name = "../data/".$post_data['filename'].".jason";
 $data = $post_data['filedata'];
 // write the file to disk
 file_put_contents($name, $data);
+echo "File saved successfully 2.";
 ?>
