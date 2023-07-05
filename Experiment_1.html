@@ -216,10 +216,8 @@ jsPsych.data.addProperties({
       
           save_local_data(data_folder+'All_data/all_data_sub_'+subject_id+".csv", jsPsych.data.get().ignore('stimulus').csv());
           save_local_data(int_data_folder+'int_data_sub_'+subject_id+".csv", jsPsych.data.getInteractionData().csv());
-          save_local_data(data_folder+'Events/events_sub_'+subject_id+".csv", convertToCSV(events));
           save_server_data(data_folder+'All_data/all_data_sub_'+subject_id+".csv", jsPsych.data.get().ignore('stimulus').csv());
           save_server_data(int_data_folder+'int_data_sub_'+subject_id+".csv", jsPsych.data.getInteractionData().csv());
-          save_server_data(data_folder+'Events/events_sub_'+subject_id+".csv", convertToCSV(events));
       } // 
       } // on_finish
 
