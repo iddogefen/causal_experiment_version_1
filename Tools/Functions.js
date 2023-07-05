@@ -10,7 +10,7 @@ function save_server_data(name, data) {
     filedata: data
   }));
 }
-
+/*
 function saveData(name, data){
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'Tools/write_data_1.php'); // 'write_data.php' is the path to the php file described above.
@@ -18,7 +18,7 @@ function saveData(name, data){
   xhr.send(JSON.stringify({filedata: data}));
 }
 
-/*
+
 function saveData(name, data){
   var xhr = new XMLHttpRequest();
   xhr.open('POST', 'Tools/write_data.php'); // 'write_data.php' is the path to the php file described above.
@@ -32,7 +32,7 @@ function saveData(name, data){
 
 // Save data to file functions
 
-
+*/
 
 function save_local_data(name, data){
    var a         = document.createElement('a');
@@ -81,7 +81,7 @@ function save_local_data_2(filename, data){
     }
   });
 }
-*/
+
 
 // Functions for loading the CSV files that contained optimized jitter durations
 function csvJSON(csv) {
