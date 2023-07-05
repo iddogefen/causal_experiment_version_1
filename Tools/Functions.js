@@ -130,7 +130,7 @@ function save_local_data(name, data){
  document.body.appendChild(a);
  a.click();
 }
-*/
+
 
 function save_local_data(filename, data){
 $.ajax({
@@ -148,7 +148,7 @@ $.ajax({
   }
 });
 }
-
+*/
 // Time stamp for files
 function timeStamp() {
 function s(x) {
