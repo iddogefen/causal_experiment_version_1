@@ -54,8 +54,7 @@ function save_local_data(filename, data){
       filename: filename
     },
     success: function(response) {
-      console.log(response);
-      console.log("yes");// Log the response from the PHP script
+      console.log(response); // Log the response from the PHP script
     },
     error: function(xhr, status, error) {
       console.error(error); // Log any errors that occur
