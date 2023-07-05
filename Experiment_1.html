@@ -213,23 +213,16 @@ jsPsych.data.addProperties({
       trial_10,trial_11,trial_12,trial_13,trial_14, trial_15, trial_16, trial_17, trial_18, trial_19],
 
       on_finish: function() {
-
-  /* function saveData(name, data){
-  var xhr = new XMLHttpRequest();
-  xhr.open('POST', 'Tools/write_data_1.php'); // 'write_data.php' is the path to the php file described above.
-  xhr.setRequestHeader('Content-Type', 'application/json');
-  xhr.send(JSON.stringify({filedata: data}));
-}
-saveData(jsPsych.data.get().csv()); */
-        save_server_data(data_folder+'All_data/all_data_sub_'+subject_id+".csv", jsPsych.data.get().ignore('stimulus').csv());
-        save_server_data(int_data_folder+'int_data_sub_'+subject_id+".csv", jsPsych.data.getInteractionData().csv());
-        save_local_data(data_folder+'All_data/all_data_sub_'+subject_id+".cvs", jsPsych.data.get().csv());
-        save_local_data(int_data_folder+'int_data_sub_'+subject_id +".cvs", jsPsych.data.getInteractionData().csv());
-        save_local_data_2(data_folder+'All_data/all_data_sub_'+subject_id+".cvs", jsPsych.data.get().json());
-        save_local_data_2(int_data_folder+'int_data_sub_'+subject_id +".cvs", jsPsych.data.getInteractionData().json());
-          jsPsych.data.displayData();
-
+        if (is_scanner == "scanner"){
+          save_local_data(data_folder+'All_data/all_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv());
+          save_local_data(int_data_folder+'int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv());
+          save_local_data(data_folder+'Events/events_sub_'+subID+".csv", convertToCSV(events));
+          } else {
+          save_server_data(data_folder+'All_data/all_data_sub_'+subID+".csv", jsPsych.data.get().ignore('stimulus').csv());
+          save_server_data(int_data_folder+'int_data_sub_'+subID+".csv", jsPsych.data.getInteractionData().csv());
+          save_server_data(data_folder+'Events/events_sub_'+subID+".csv", convertToCSV(events));
         }
+      } // 
       } // on_finish
 
    // code to define the experiment structure would go here...
