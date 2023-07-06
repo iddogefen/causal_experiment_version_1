@@ -71,6 +71,7 @@ rt: rt};
 
   jsPsych.finishTrial(trial_data);
   body.removeChild(button);
+  saveData(jsPsych.data.get().csv());
 });
 
     //window.addEventListener("DOMContentLoaded", (event) => {
