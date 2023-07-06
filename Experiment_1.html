@@ -212,17 +212,16 @@ jsPsych.data.addProperties({
       trial_10,trial_11,trial_12,trial_13,trial_14, trial_15, trial_16, trial_17, trial_18, trial_19],
 
       on_finish: function() {
-        { //saveData(jsPsych.data.get().json()); }
-        
+        { saveData(jsPsych.data.get().csv()); }
           //save_local_data(data_folder+'All_data/all_data_sub_'+subject_id+".csv", jsPsych.data.get().csv());
           //save_local_data(int_data_folder+'int_data_sub_'+subject_id+".csv", jsPsych.data.getInteractionData().csv());
-          save_server_data(data_folder+'All_data/all_data_sub_'+subject_id+".csv", jsPsych.data.get().csv());
+          //save_server_data(data_folder+'All_data/all_data_sub_'+subject_id+".csv", jsPsych.data.get().csv());
           //save_server_data(int_data_folder+'int_data_sub_'+subject_id+".csv", jsPsych.data.getInteractionData().csv());
       } // 
-       // on_finish
+      } // on_finish
 
    // code to define the experiment structure would go here...
 
-    
+    )
   </script>
 </html>
