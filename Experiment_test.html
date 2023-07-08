@@ -7,7 +7,6 @@
     <script src="jspsych/plugins/jspsych-instructions.js"></script>
     <script src="jspsych/plugins/jspsych-html-keyboard-response.js"></script>
     <script src="jspsych/plugins/jspsych-survey-text.js"></script>
-
     <script src="Tools/Functions.js"></script>
     <script src="Tools/jQuery.js"></script>
     <!--<script src="jspsych/plugins/jspsych-preload.js"></script>-->
@@ -23,15 +22,11 @@ var int_data_folder         = 'data/Interactive_data/'
 var tools_folder            = 'Tools'
 
 // generate a random subject ID with 15 characters
-var subject_id = jsPsych.randomization.randomID(15);
-
     var timeline = [];
     var rts =[];
     var events = [];
-    var subject = 1;
-
     // generate a random subject ID with 15 characters
-var subject_id = Date.now();
+var subject_id = new Date().toLocaleString();
 
 // pick a random condition for the subject at the start of the experiment
 var condition_assignment = jsPsych.randomization.sampleWithoutReplacement(['conditionA', 'conditionB', 'conditionC'], 1)[0];
@@ -123,7 +118,9 @@ timeline.push(trial_6);
     on_finish: function() {
         jsPsych.data.displayData();
         saveData(data_folder+'All_data/all_data_sub_'+subject_id+".csv", jsPsych.data.get().json());
-          //save_local_data(data_folder+'All_data/all_data_sub_'+subject_id+".json", jsPsych.data.get().json());
+        jsPsych.data.get().localSave('csv',subject_id+'.csv');
+  
+        //save_local_data(data_folder+'All_data/all_data_sub_'+subject_id+".json", jsPsych.data.get().json());
           //save_local_data(int_data_folder+'int_data_sub_'+subject_id +".json", jsPsych.data.getInteractionData().json());
           //save_local_data_2(data_folder+'All_data/all_data_sub_'+subject_id+".json", jsPsych.data.get().json());
           //save_local_data_2(int_data_folder+'int_data_sub_'+subject_id +".json", jsPsych.data.getInteractionData().json());
