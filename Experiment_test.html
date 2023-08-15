@@ -62,7 +62,7 @@ var trial_3 = {
     pages: [
     'Welcome to the experiment. Click next to begin.',
     'In the upcoming experiment, you will need to arrange four different pictures in the correct order.',
-    'Try in now.' + '<img src="0_1.jpg" width="600" height="375"></img>'
+    'Try in now.' + '<img src="0_1.jpg" width="800" height="450"></img>'
     ],
     show_clickable_nav: true
 }
@@ -123,22 +123,37 @@ timeline.push(trial_8);
       type: 'order',
       stimuli: ['7_1','7_2','7_4','7_3'],
       button_label:  'Continue when done',
-  
-
-  
     }
     timeline.push(trial_9);
 
- 
+    var trial_10 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_10);
+
+
+var trial_11 = {
+
+  type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_11);
 
     jsPsych.init({
-      timeline: [trial_1,trial_2, trial_3,trial_4, trial_5, trial_6, trial_7,trial_8, trial_9],
+      timeline: [trial_1,trial_2, trial_3,trial_4, trial_5, trial_6, trial_7,trial_8, trial_9, trial_10, trial_11],
     
     on_finish: function() {
         jsPsych.data.displayData();
         saveData(data_folder+'All_data/all_data_sub_'+subject_id+".csv", jsPsych.data.get().json());
-        jsPsych.data.get().localSave('csv',subject_id+'.csv');
-  
+        //jsPsych.data.get().localSave('csv',subject_id+'.csv');
         //save_local_data(data_folder+'All_data/all_data_sub_'+subject_id+".json", jsPsych.data.get().json());
           //save_local_data(int_data_folder+'int_data_sub_'+subject_id +".json", jsPsych.data.getInteractionData().json());
           //save_local_data_2(data_folder+'All_data/all_data_sub_'+subject_id+".json", jsPsych.data.get().json());

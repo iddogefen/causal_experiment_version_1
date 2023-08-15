@@ -114,7 +114,7 @@ rt: rt};
       stars_times.push(start_time);
       console.log('start time:', start_time);
 
-      display_element.innerHTML = '<h2>Scrambled Pictures</h2>' +'<div id="pieces"></div>' +  '<h2>Correct Order</h2>' + 
+      display_element.innerHTML = '<h2>Scrambled Order</h2>' +'<div id="pieces"></div>' +  '<h2>Correct Order</h2>' + 
       '<div id="board"></div>' +'<b> 1 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 2 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp  &nbsp &nbsp 3 &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp &nbsp 4 </b>'
       + '<div id= "btn1"></div>'; 
       for (let r = 0; r < rows; r++) {
