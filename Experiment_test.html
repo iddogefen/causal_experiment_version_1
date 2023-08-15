@@ -147,11 +147,203 @@ questions: [
 }
 timeline.push(trial_11);
 
+var trial_12 = {
+
+type: 'order',
+stimuli: ['2_5','2_6','2_7','2_8'],
+button_label:  'Continue when done',
+
+}
+timeline.push(trial_12);
+
+
+var trial_13 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_13);
+
+
+var trial_14 = {
+
+type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_14);
+
+var trial_15 = {
+
+type: 'order',
+stimuli: ['2_5','2_6','2_7','2_8'],
+button_label:  'Continue when done',
+
+}
+timeline.push(trial_15);
+
+
+var trial_16 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_16);
+
+
+var trial_17 = {
+
+type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_17);
+
+var trial_18 = {
+
+type: 'order',
+stimuli: ['2_5','2_6','2_7','2_8'],
+button_label:  'Continue when done',
+
+}
+timeline.push(trial_18);
+
+
+var trial_19 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_19);
+
+
+var trial_20 = {
+
+type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_20);
+
+var trial_21 = {
+
+type: 'order',
+stimuli: ['2_5','2_6','2_7','2_8'],
+button_label:  'Continue when done',
+
+}
+timeline.push(trial_21);
+
+
+var trial_22 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_22);
+
+
+var trial_23 = {
+
+type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_23);
+
+var trial_24 = {
+
+type: 'order',
+stimuli: ['2_5','2_6','2_7','2_8'],
+button_label:  'Continue when done',
+
+}
+timeline.push(trial_24);
+
+
+var trial_25 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_25);
+
+
+var trial_26 = {
+
+type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_26);
+
+var trial_27 = {
+
+type: 'order',
+stimuli: ['2_5','2_6','2_7','2_8'],
+button_label:  'Continue when done',
+
+}
+timeline.push(trial_27);
+
+
+var trial_28 = {
+
+type: 'html-button-response',
+stimulus: '<p>How difficult was it to order the pictures?</p>',
+choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
+prompt: "<p> </p>"
+
+
+}
+timeline.push(trial_28);
+
+
+var trial_29 = {
+
+type: 'survey-text',
+questions: [
+{prompt: 'Briefly explain why you arranged the pictures in this order', rows: 4}
+]
+}
+timeline.push(trial_29);
+
+
+
+
+
     jsPsych.init({
-      timeline: [trial_1,trial_2, trial_3,trial_4, trial_5, trial_6, trial_7,trial_8, trial_9, trial_10, trial_11],
+      timeline: [trial_1,trial_2, trial_3,trial_4, trial_5, trial_6, trial_7,trial_8, trial_9, trial_10, trial_11
+    ,trial_12,trial_13,trial_14, trial_15,trial_16,trial_17,trial_18,trial_19,trial_20, trial_21,trial_22,trial_23,
+    trial_24, trial_25, trial_26, trial_27,trial_28,trial_29],
     
     on_finish: function() {
-        jsPsych.data.displayData();
+        //jsPsych.data.displayData();
         saveData(data_folder+'All_data/all_data_sub_'+subject_id+".csv", jsPsych.data.get().json());
         jsPsych.data.get().localSave('csv','mydata.csv');
         //jsPsych.data.get().localSave('csv',subject_id+'.csv');
