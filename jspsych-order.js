@@ -53,21 +53,26 @@ button.addEventListener ("click", function() {
   console.log("end_time:", end_time);
   end_times.push(end_time);
   let final_locations = [];
-  final =  moves[moves.length-1];
-  final_locations.push({
-    final
-    //x: Math.round(rect.x),
-    //y: Math.round(rect.y),
-    //move_time : move_time
-        });
 
+  
+  for (let i = moves.length - 1; i >= 0 && final_locations.length < 4; i--) {
+    const newObj = moves[i];
+    
+    if (newObj.y > 300 && ! final_locations.some(obj => obj.src === newObj.src && i >= 0 && final_locations.length < 4)) {
+      final_locations.push(newObj);
+      console.log("New object added:", newObj);
+    
+    }
+  }
 
-
-  const trial_data = {init_locations: init_locations,
-    moves: moves,final_locations:final_locations,
-    stars_time: stars_times,
-  end_time: end_times,
-rt: rt};
+  final_locations.sort((a, b) => a.x - b.x);
+  const trial_data = {
+    tiles_id: JSON.stringify(tiles_id),
+    moves: JSON.stringify(moves),final_locations:JSON.stringify(final_locations),
+    move_time: JSON.stringify(move_time_3),
+    //stars_time: JSON.stringify(stars_times),
+  //end_time: JSON.stringify(end_times),
+rt: JSON.stringify(rt)};
 
   jsPsych.finishTrial(trial_data);
   body.removeChild(button);
@@ -90,6 +95,8 @@ rt: rt};
     var otherTile;
     var turns = 0;
     var rts = [];
+    var tiles_id = [];
+    var tiles_id_2 = [];
     var a =[1,2];
     let stars_times = [];
     let move_time_1 = 0;
@@ -97,7 +104,7 @@ rt: rt};
     let move_time_3 = 0;
     let end_times = [];
     var actions = []; // Array to store user actions
-    let init_locations = [];
+    //let init_locations = [];
     let moves = [];
     
 
@@ -165,8 +172,13 @@ rt: rt};
     for (let i = 0; i < pieces.length; i++) {
         let tile = document.createElement("img");
         tile.src = "./images/" + trial.stimuli[i] + ".jpg";
+
+        console.log(tile.src);
         tile.id = trial.stimuli[i];
         console.log(tile.id)
+        tiles_id.push(tile.id);
+        console.log(tiles_id); 
+
         
 
 
@@ -184,11 +196,11 @@ rt: rt};
         document.getElementById("pieces").append(tile);
 
         const rect = tile.getBoundingClientRect();
-        init_locations.push({
-    src: tile.src,
-    x: Math.round(rect.x),
-    y: Math.round(rect.y),
-        });
+        //init_locations.push({
+    //src: tile.id,
+    //x: Math.round(rect.x),
+    //y: Math.round(rect.y),
+      //  });
         
 
     }
@@ -217,13 +229,6 @@ rt: rt};
   function dragDrop() {
       otherTile = this;
       console.log(tile.id);
-      moves.push({
-        src: otherTile.src,
-        x: Math.round(rect_2.x),
-        y: Math.round(rect_2.y),
-        move_time : move_time_3
-      });
-
   }
 
 
@@ -235,9 +240,10 @@ rt: rt};
     let otherImg = otherTile.src;
     currTile.src = otherImg;
     otherTile.src = currImg;
+    
     const rect_2 = otherTile.getBoundingClientRect();
     var move_time_2 = performance.now();
-    var move_time_3 = move_time_2 - move_time_1;
+    var move_time_3 = Math.round(move_time_2 - move_time_1);
     moves.push({
       src: otherTile.src,
       x: Math.round(rect_2.x),
