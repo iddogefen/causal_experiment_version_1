@@ -67,9 +67,8 @@ button.addEventListener ("click", function() {
 
   final_locations.sort((a, b) => a.x - b.x);
   const trial_data = {
-    tiles_id: JSON.stringify(tiles_id),
+    initial_location: JSON.stringify(initial_location),
     moves: JSON.stringify(moves),final_locations:JSON.stringify(final_locations),
-    move_time: JSON.stringify(move_time_3),
     //stars_time: JSON.stringify(stars_times),
   //end_time: JSON.stringify(end_times),
 rt: JSON.stringify(rt)};
@@ -95,8 +94,7 @@ rt: JSON.stringify(rt)};
     var otherTile;
     var turns = 0;
     var rts = [];
-    var tiles_id = [];
-    var tiles_id_2 = [];
+    var initial_location = [];
     var a =[1,2];
     let stars_times = [];
     let move_time_1 = 0;
@@ -176,8 +174,8 @@ rt: JSON.stringify(rt)};
         console.log(tile.src);
         tile.id = trial.stimuli[i];
         console.log(tile.id)
-        tiles_id.push(tile.id);
-        console.log(tiles_id); 
+        initial_location.push(initial_location);
+        console.log(initial_location); 
 
         
 
