@@ -61,7 +61,7 @@ var trial_3 = {
 
     'Welcome to the experiment. Click next to begin.',
     'In this experiment, you are asked to arrange four different pictures in the correct order.'  +'<br/>'+ 'Do this by dragging the images from the top row, and arranging them in the correct order in the bottom row.',
-       '<img src="0_1.jpg" width="800" height="450"></img>', '<span style="color: black; font-size: 20px">Try in now.</span>'
+       '<img src="0_1.jpg" width="800" height="450"></img>', '<spדan style="color: black; font-size: 20px">Try in now.</span>'
 
     ],
     show_clickable_nav: true
@@ -384,7 +384,7 @@ timeline.push(trial_33);
     trial_24, trial_25, trial_26, trial_27,trial_28,trial_29,trial_30,trial_31, trial_32, trial_32, trial_33],
     
     on_finish: function() {
-        //jsPsych.data.displayData();
+        jsPsych.data.displayData();
         saveData(data_folder+'All_data/all_data_sub_'+subject_id+".csv", jsPsych.data.get().csv());
         //jsPsych.data.get().localSave('csv','mydata.csv');
         //jsPsych.data.get().localSave('csv',subject_id+'.csv');

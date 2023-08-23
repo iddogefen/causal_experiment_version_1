@@ -46,13 +46,26 @@ button.innerHTML = "Click when done";
 var body = document.getElementsByTagName("body")[0];
 body.appendChild(button);
 button.id = "btn1"
+var finalImagePositions = [];
 // 3. Add event handler
 button.addEventListener ("click", function() {
   const end_time = performance.now();
-  const rt = end_time - stars_times;
+  const rt = Math.round(end_time - stars_times);
   console.log("end_time:", end_time);
   end_times.push(end_time);
   let final_locations = [];
+  
+  const images = document.querySelectorAll('#board img');
+  finalImagePositions = [];
+
+  images.forEach(image => {
+    const rect = image.getBoundingClientRect();
+    finalImagePositions.push({
+      src: image.src,
+      x: Math.round(rect.x),
+      y: Math.round(rect.y)
+    });
+  });
 
   
   for (let i = moves.length - 1; i >= 0 && final_locations.length < 4; i--) {
@@ -65,13 +78,17 @@ button.addEventListener ("click", function() {
     }
   }
 
-  final_locations.sort((a, b) => a.x - b.x);
+  finalImagePositions.sort((a, b) => a.x - b.x);
   const trial_data = {
     initial_locations: JSON.stringify(tiles_id),
-    moves: JSON.stringify(moves),final_locations:JSON.stringify(final_locations),
+    moves: JSON.stringify(moves),
     //stars_time: JSON.stringify(stars_times),
   //end_time: JSON.stringify(end_times),
-rt: JSON.stringify(rt)};
+  final_locations: JSON.stringify(finalImagePositions),
+  number_of_moves: JSON.stringify(turns),
+
+  rt: JSON.stringify(rt)};
+
 
   jsPsych.finishTrial(trial_data);
   body.removeChild(button);
@@ -98,6 +115,7 @@ rt: JSON.stringify(rt)};
     var tiles_id_2 = [];
     var a =[1,2];
     let stars_times = [];
+    let final_locations_2 = [];
     let move_time_1 = 0;
     let move_time_2 = 0;
     let move_time_3 = 0;
@@ -176,9 +194,11 @@ rt: JSON.stringify(rt)};
         tile.id = trial.stimuli[i];
         console.log(tile.id)
         tiles_id.push(tile.id);
-        console.log(tiles_id); 
-
-        
+        console.log(tiles_id);
+        // Log the x and y positions of the current tile
+            
+    
+    
 
 
         
@@ -250,11 +270,12 @@ rt: JSON.stringify(rt)};
       move_time : move_time_3
     });
           
-    console.log(otherTile,rect_2.top, rect_2.right, rect_2.bottom, rect_2.left,);
+    console.log("Image:", otherTile,"Top Location (Y):", rect_2.top,  "Bottem Location(Y):", rect_2.bottom, "Left Location(X):", rect_2.left, "Right Location(X):", rect_2.right,"Turns:",turns+1);
     move_time_1 = move_time_2;
     move_time_3
     turns += 1;
     document.getElementById("turns").innerText = turns;
+
 
     // Save action
     actions.push({
@@ -294,10 +315,7 @@ function displayActions() {
   
 
     show_stimulus(current_order);    
-  };
-
-
-
+  }
 
   return plugin;
 })();
