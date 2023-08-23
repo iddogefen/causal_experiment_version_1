@@ -84,7 +84,7 @@ button.addEventListener ("click", function() {
     moves: JSON.stringify(moves),
     //stars_time: JSON.stringify(stars_times),
   //end_time: JSON.stringify(end_times),
-  final_locations: JSON.stringify(finalImagePositions),
+  final_locations_3: JSON.stringify(finalImagePositions),
   number_of_moves: JSON.stringify(turns),
 
   rt: JSON.stringify(rt)};
