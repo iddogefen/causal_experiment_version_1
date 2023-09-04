@@ -183,11 +183,11 @@ timeline.push(trial_11);
 var trial_12 = {
 
   type: 'image-button-response',
-    stimulus: ['images/memory_example_1.jpg',],
+    stimulus: ['images/memory_1.png',],
     stimulus_width:"480",
     stimulus_height:'270',
     choices: ['Option 1', 'Option 2'],
-    prompt: "<p>What image appeared to the right of the image in the black square?</p>"
+    prompt: "<p>What image appeared next to image in the black square?</p>"
 
 
 }
@@ -197,11 +197,11 @@ timeline.push(trial_12);
 var trial_13 = {
 
     type: 'image-button-response',
-    stimulus: ['images/memory_example_1.jpg',],
+    stimulus: ['images/memory_2.png',],
     stimulus_width:"480",
     stimulus_height:'270',
     choices: ['Option 1', 'Option 2'],
-    prompt: "<p>What image appeared to the right of the image in the black square?</p>"
+    prompt: "<p>What image appeared next to image in the black square?</p>"
 
 }
 timeline.push(trial_13);
@@ -209,11 +209,11 @@ timeline.push(trial_13);
 var trial_14 = {
 
   type: 'image-button-response',
-    stimulus: ['images/memory_example_1.jpg',],
+    stimulus: ['images/memory_3.png',],
     stimulus_width:"480",
     stimulus_height:'270',
     choices: ['Option 1', 'Option 2'],
-    prompt: "<p>What image appeared to the right of the image in the black square?</p>"
+    prompt: "<p>What image appeared next to image in the black square?</p>"
 
 }
 timeline.push(trial_14);
@@ -260,11 +260,11 @@ var trial_18 = {
 
 
   type: 'image-button-response',
-    stimulus: ['images/memory_example_1.jpg',],
+    stimulus: ['images/memory_4.png',],
     stimulus_width:"480",
     stimulus_height:'270',
     choices: ['Option 1', 'Option 2'],
-    prompt: "<p>What image appeared to the right of the image in the black square?</p>"
+    prompt: "<p>What image appeared next to image in the black square?</p>"
 
 }
 timeline.push(trial_18);
@@ -274,11 +274,11 @@ var trial_19 = {
 
 
   type: 'image-button-response',
-    stimulus: ['images/memory_example_1.jpg',],
+    stimulus: ['images/memory_5.png',],
     stimulus_width:"480",
     stimulus_height:'270',
     choices: ['Option 1', 'Option 2'],
-    prompt: "<p>What image appeared to the right of the image in the black square?</p>"
+    prompt: "<p>What image appeared next to image in the black square?</p>"
     
 }
 timeline.push(trial_19);
@@ -287,11 +287,11 @@ var trial_20 = {
 
 
   type: 'image-button-response',
-    stimulus: ['images/memory_example_1.jpg',],
+    stimulus: ['images/memory_6.png',],
     stimulus_width:"480",
     stimulus_height:'270',
     choices: ['Option 1', 'Option 2'],
-    prompt: "<p>What image appeared to the right of the image in the black square?</p>"
+    prompt: "<p>What image appeared next to image in the black square?</p>"
 
 }
 timeline.push(trial_20);
@@ -299,11 +299,10 @@ timeline.push(trial_20);
 
 var trial_21 = {
 
-type: 'html-button-response',
-stimulus: '<p>How difficult was it to order the pictures?</p>',
-choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
-prompt: "<p> </p>"
-
+  type: 'survey-text',
+questions: [
+  {prompt: 'Please insert your age'}
+]
 
 }
 timeline.push(trial_21);
@@ -311,133 +310,22 @@ timeline.push(trial_21);
 
 var trial_22 = {
 
-type: 'survey-text',
-questions: [
-{prompt: 'Briefly explain why you arranged the pictures in this order:', rows: 4}
-]
-}
-timeline.push(trial_22);
-
-var trial_23 = {
-
-type: 'order',
-stimuli: ['8_2','8_4','8_1','8_3'],
-button_label:  'Continue when done',
-
-}
-timeline.push(trial_23);
-
-
-var trial_24 = {
-
-type: 'html-button-response',
-stimulus: '<p>How difficult was it to order the pictures?</p>',
-choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
-prompt: "<p> </p>"
-
-
-}
-timeline.push(trial_24);
-
-
-var trial_25 = {
-
-type: 'survey-text',
-questions: [
-{prompt: 'Briefly explain why you arranged the pictures in this order:', rows: 4}
-]
-}
-timeline.push(trial_25);
-
-var trial_26 = {
-
-type: 'order',
-stimuli: ['6_5','6_6','6_7','6_8'],
-button_label:  'Continue when done',
-
-}
-timeline.push(trial_26);
-
-
-var trial_27 = {
-
-type: 'html-button-response',
-stimulus: '<p>How difficult was it to order the pictures?</p>',
-choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
-prompt: "<p> </p>"
-
-
-}
-timeline.push(trial_27);
-
-
-var trial_28 = {
-
-type: 'survey-text',
-questions: [
-{prompt: 'Briefly explain why you arranged the pictures in this order:', rows: 4}
-]
-}
-timeline.push(trial_28);
-
-var trial_29 = {
-
-type: 'order',
-stimuli: ['4_5','4_6','4_7','4_8'],
-button_label:  'Continue when done',
-
-}
-timeline.push(trial_29);
-
-
-var trial_30 = {
-
-type: 'html-button-response',
-stimulus: '<p>How difficult was it to order the pictures?</p>',
-choices: ['very easy','easy', 'medium', 'hard', 'very hard'],
-prompt: "<p> </p>"
-
-
-}
-timeline.push(trial_30);
-
-
-var trial_31 = {
-
-type: 'survey-text',
-questions: [
-{prompt: 'Briefly explain why you arranged the pictures in this order:', rows: 4}
-]
-}
-timeline.push(trial_31);
-
-var trial_32 = {
-
-type: 'survey-text',
-questions: [
-  {prompt: 'Please insert your age'}
-]
-}
-timeline.push(trial_32);
-
-var trial_33 = {
-
   type: 'survey-text',
 questions: [
   {prompt: 'please insert your gender (MALE/ FEMALE/ OTHER)'}
 ]
 
 }
-timeline.push(trial_33);
+timeline.push(trial_22);
 
-var trial_34 = {
-    type: 'instructions',
+var trial_23 = {
+
+  type: 'instructions',
     pages: [
     '<span style="color: black; font-size: 24px"> You have completed the experiment.'  +'<br/>'+ 'The Completion Code is : AJFHBG897' +'<br/>'+  'Thank you for your participation!</span>'
     ],
-    show_clickable_nav: true
 }
-timeline.push(trial_34);
+timeline.push(trial_23);
 
 
 
@@ -445,8 +333,7 @@ timeline.push(trial_34);
 
     jsPsych.init({
       timeline: [trial_1,trial_2, trial_3,trial_4, trial_5, trial_6, trial_7,trial_8, trial_9, trial_10, trial_11
-    ,trial_12,trial_13,trial_14, trial_15,trial_16,trial_17,trial_18,trial_19,trial_20, trial_21,trial_22,trial_23,
-    trial_24, trial_25, trial_26, trial_27,trial_28,trial_29,trial_30,trial_31, trial_32, trial_33,trial_34],
+    ,trial_12,trial_13,trial_14, trial_15,trial_16,trial_17,trial_18,trial_19,trial_20, trial_21,trial_22,trial_23],
     
     on_finish: function() {
        // jsPsych.data.displayData();
