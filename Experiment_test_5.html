@@ -17,6 +17,8 @@
     <link rel="stylesheet" href="jspsych/css/jspsych.css">
   </head>
   <body>
+    document.querySelector('head').insertAdjacentHTML('beforeend', '<style id="cursor-toggle"> html { cursor: none; } </style>');
+
 </body>
   <script>
 var data_folder             = 'data/Individual_data/'
@@ -85,7 +87,7 @@ var trial_4 = {
 
 type: 'instructions',
 pages: [
-'<img src="images/example_1.jpg"  width="800" height="450"></img>',],
+'<img src="images/example_1.jpg"  width="800" height=""></img>',],
   //'<video src="video_test_1.mp4", autoplay="true" width="900" height="562.5"></video>', '<span style="color: black; font-size: 24px">Now try it by yourself.</span>'
   show_clickable_nav: true
 }
@@ -255,7 +257,7 @@ timeline.push(trial_17);
 var trial_18 = {
 
   type: 'image-button-response',
-    stimulus: ['images/scrambled_11.jpeg',],
+    stimulus: ['images/order_11.jpeg',],
     stimulus_width:"608",
     stimulus_height:'175' ,
     choices: ['1. Correct order', '2. Wrong order', '3. No specific order'],
@@ -270,7 +272,7 @@ var trial_19 = {
 
 
   type: 'image-button-response',
-    stimulus: ['images/order_11.jpeg',],
+    stimulus: ['images/scrambled_11.jpeg',],
     stimulus_width:"608",
     stimulus_height:'175' ,
     choices: ['1. Correct order', '2. Wrong order', '3. No specific order'],
@@ -297,7 +299,7 @@ var trial_21 = {
 
 
   type: 'image-button-response',
-    stimulus: ['images/memory_10.png',],
+    stimulus: ['images/memory_11.png',],
     stimulus_width:"480",
     stimulus_height:'270',
     choices: ['Option 1', 'Option 2'],
@@ -311,7 +313,7 @@ var trial_22 = {
 
 
   type: 'image-button-response',
-    stimulus: ['images/memory_11.png',],
+    stimulus: ['images/memory_10.png',],
     stimulus_width:"480",
     stimulus_height:'270',
     choices: ['Option 1', 'Option 2'],
