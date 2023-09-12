@@ -9,6 +9,13 @@
 
 /* Container holding jsPsych content */
 
+.hide_cursor {
+    cursor: none;
+}
+.stimulus_size {
+    padding: 30%;
+}
+
  .jspsych-display-element {
    display: flex;
    flex-direction: column;

@@ -11,6 +11,7 @@
     <script src="jspsych/jspsych.js"></script>
     <script src="jspsych-order.js"></script>
     <script src="jspsych/plugins/jspsych-image-button-response.js"></script>
+    <script src="jspsych/plugins/jspsych-call-function.js"></script>
     <script src="jspsych/plugins/jspsych-html-button-response.js"></script>
     <script src="jspsych/plugins/jspsych-instructions.js"></script>
     <script src="jspsych/plugins/jspsych-html-keyboard-response.js"></script>
@@ -47,22 +48,22 @@ jsPsych.data.addProperties({
   condition: condition_assignment
 });
 
-var cursor_off = {
-    type: 'call-function',
-    func: function() {
-        document.body.style.cursor= "none";
-    }
-
-}
-
-timeline.push(cursor_off);
-
 var trial_1 = {
   type: 'fullscreen',
   fullscreen_mode: true
 }
 
 timeline.push(trial_1);
+
+
+
+var cursor_off = {
+    type: 'call-function',
+    func: function() {
+        document.body.style.cursor= "pointer";
+    }}
+
+timeline.push(cursor_off);
 
 var trial_2 = {
 
@@ -454,7 +455,7 @@ type: 'instructions',
 timeline.push(trial_32);
 
   jsPsych.init({
-    timeline: [cursor_off,trial_1, trial_2, trial_3,trial_4, trial_5, trial_6, trial_7,trial_8, trial_9, trial_10, trial_11
+    timeline: [trial_1, cursor_off, trial_2, trial_3,trial_4, trial_5, trial_6, trial_7,trial_8, trial_9, trial_10, trial_11
   ,trial_12,trial_13,trial_14, trial_15,trial_16,trial_17,trial_18,trial_19,trial_20, trial_21,trial_22,trial_23,trial_24,
   trial_25, trial_26, trial_27, trial_28,trial_29,trial_30,trial_31, trial_32],
   
