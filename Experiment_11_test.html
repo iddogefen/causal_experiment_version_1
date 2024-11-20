@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jspsych/jspsych.js"></script>
+    <script src="jspsych-order.js"></script>
+    <script src="jspsych/plugins/jspsych-instructions.js"></script>
+    <script src="jspsych/plugins/jspsych-html-button-response.js"></script>
+    <script src="jspsych/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="jspsych/plugins/jspsych-preload.js"></script>
+    <script src="jspsych/plugins/jspsych-survey-html-form.js"></script>
+    <script src="jspsych/plugins/jspsych-fullscreen.js"></script>
+    <script src="jspsych/plugins/jspsych-survey-text.js"></script>
+    <link rel="stylesheet" href="jspsych/css/jspsych.css">
+  </head>
+  <body></body>
+  <script>
+    // Global Variables
+    var timeline = [];
+
+    // Subject ID and condition assignment
+    var subject_id = jsPsych.randomization.randomID(15);
+    var condition_assignment = jsPsych.randomization.sampleWithoutReplacement(['conditionA', 'conditionB', 'conditionC'], 1)[0];
+
+    jsPsych.data.addProperties({
+      subject: subject_id,
+      condition: condition_assignment
+    });
+
+    // Preload images
+    var preload = {
+      type: 'preload',
+      images: [
+        'market_story/market_story_1.png',
+        'market_story/market_story_2.png',
+        'market_story/market_story_3.png',
+        'market_story/market_story_4.png',
+        'market_story/market_story_5.png',
+        'market_story/market_story_6.png',
+        'market_story/market_story_7.png',
+        'market_story/market_story_8.png',
+        'market_story/market_story_9.png',
+        'market_story/market_story_10.png', // Fixed naming
+        'paris_story/paris_story_1.png',
+        'paris_story/paris_story_2.png',
+        'paris_story/paris_story_3.png',
+        'paris_story/paris_story_4.png',
+        'paris_story/paris_story_5.png',
+        'paris_story/paris_story_6.png',
+        'paris_story/paris_story_7.png',
+        'paris_story/paris_story_8.png',
+        'paris_story/paris_story_9.png',
+        'paris_story/paris_story_10.png', // Fixed naming
+        'images/blank.jpg', // Ensure this image exists for placeholders
+        'video_test_1.mp4'
+      ],
+      auto_preload: true
+    };
+    timeline.push(preload);
+
+    // Shuffle Array Utility Function
+    function shuffleArray(array) {
+      for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+      }
+    }
+
+    // Experiment Trials
+    timeline.push({
+      type: 'fullscreen',
+      fullscreen_mode: true
+    });
+
+    timeline.push({
+      type: 'instructions',
+      pages: [
+        '<span style="color: black; font-size: 24px">Welcome to the experiment. Click next to begin.</span>',
+        '<span style="color: black; font-size: 24px">In this experiment, arrange pictures in the correct order by dragging them.</span>',
+        '<video src="video_test_1.mp4" autoplay="true" width="900" height="562.5"></video>',
+        '<span style="color: black; font-size: 24px">Now try it yourself.</span>'
+      ],
+      show_clickable_nav: true
+    });
+
+    var trial_1 = {
+      type: 'order',
+      stimuli: [
+        'market_story/market_story_1',
+        'market_story/market_story_2',
+        'market_story/market_story_3',
+        'market_story/market_story_4',
+        'market_story/market_story_5',
+        'market_story/market_story_6',
+        'market_story_market_story_7',
+        'market_story/market_story_8',
+        'market_story/market_story_9',
+        'market_story/market_story_10'
+      ],
+      button_label: 'Continue when done'
+    };
+    shuffleArray(trial_1.stimuli);
+    timeline.push(trial_1);
+
+    timeline.push({
+      type: 'survey-text',
+      questions: [{ prompt: 'Please insert your age:' }]
+    });
+
+    timeline.push({      type: 'survey-text',
+      questions: [{ prompt: 'Please insert your gender (MALE / FEMALE / OTHER):' }]
+    });
+
+    timeline.push({
+      type: 'instructions',
+      pages: [
+        '<span style="color: black; font-size: 24px">Thank you for participating in the experiment!</span>'
+      ],
+      show_clickable_nav: true
+    });
+
+    jsPsych.init({
+      timeline: timeline,
+      on_finish: function () {
+        jsPsych.data.get().localSave('csv', 'experiment_data.csv');
+      }
+    });
+  </script>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="jspsych/jspsych.js"></script>
+    <script src="jspsych-order.js"></script>
+    <script src="jspsych/plugins/jspsych-instructions.js"></script>
+    <script src="jspsych/plugins/jspsych-html-button-response.js"></script>
+    <script src="jspsych/plugins/jspsych-html-keyboard-response.js"></script>
+    <script src="jspsych/plugins/jspsych-preload.js"></script>
+    <script src="jspsych/plugins/jspsych-html-button-response.js"></script>
+    <script src="jspsych/plugins/jspsych-survey-html-form.js"></script>
+    <script src="jspsych/plugins/jspsych-fullscreen.js"></script>
+    <script src="Tools/Functions.js"></script>
+    <script src="jspsych/plugins/jspsych-survey-text.js"></script>
+    <script src="Tools/jQuery.js"></script>
+    <!--<script src="jspsych/plugins/jspsych-preload.js"></script>-->
+    
+    <link rel="stylesheet" href="jspsych/css/jspsych.css">
+
+
+
+    
+    
+
+  </head>
+  <body>
+</body>
+  <script>
+
+var data_folder             = 'data/Individual_data/'
+var int_data_folder         = 'data/Interactive_data/'
+var tools_folder            = 'Tools'
+
+// generate a random subject ID with 15 characters
+var subject_id = jsPsych.randomization.randomID(15);
+
+// pick a random condition for the subject at the start of the experiment
+var condition_assignment = jsPsych.randomization.sampleWithoutReplacement(['conditionA', 'conditionB', 'conditionC'], 1)[0];
+
+// record the condition assignment in the jsPsych data
+// this adds a property called 'subject' and a property called 'condition' to every trial
+jsPsych.data.addProperties({
+  subject: subject_id,
+  condition: condition_assignment
+});
+    var timeline = [];
+    var rts =[];
+    var events = [];
+    var subject = 1;
+
+    // generate a random subject ID with 15 characters
+var subject_id = Date.now();
+
+// pick a random condition for the subject at the start of the experiment
+var condition_assignment = jsPsych.randomization.sampleWithoutReplacement(['conditionA', 'conditionB', 'conditionC'], 1)[0];
+
+// record the condition assignment in the jsPsych data
+// this adds a property called 'subject' and a property called 'condition' to every trial
+jsPsych.data.addProperties({
+  subject: subject_id,
+  condition: condition_assignment
+});
+
+var preload = {
+  type: 'preload',
+  images: [
+    'market_story/market_story_1.png',
+    'market_story/market_story_2.png',
+    'market_story/market_story_3.png',
+    'market_story/market_story_4.png',
+    'market_story/market_story_5.png',
+    'market_story/market_story_6.png',
+    'market_story/market_story_7.png',
+    'market_story/market_story_8.png',
+    'market_story/market_story_9.png',
+    'market_story/market_story_10.png',
+    'paris_story/paris_story_1.png',
+    'paris_story/paris_story_2.png',
+    'paris_story/paris_story_3.png',
+    'paris_story/paris_story_4.png',
+    'paris_story/paris_story_5.png',
+    'paris_story/paris_story_6.png',
+    'paris_story/paris_story_7.png',
+    'paris_story/paris_story_8.png',
+    'paris_story/paris_story_9.png',
+    'paris_story/paris_story_10.png',
+    'flight_scheme/flight_1.png',
+    'flight_scheme/flight_2.png',
+    'flight_scheme/flight_3.png',
+    'flight_scheme/flight_4.png',
+    'flight_scheme/flight_5.png',
+    'flight_scheme/flight_6.png',
+    'flight_scheme/flight_7.png',
+    'flight_scheme/flight_8.png',
+    'flight_scheme/flight_9.png',
+    'flight_scheme/flight_10.png',
+    'restaurant_scheme/restaurant_1.png',
+    'restaurant_scheme/restaurant_2.png',
+    'restaurant_scheme/restaurant_3.png',
+    'restaurant_scheme/restaurant_4.png',
+    'restaurant_scheme/restaurant_5.png',
+    'restaurant_scheme/restaurant_6.png',
+    'restaurant_scheme/restaurant_7.png',
+    'restaurant_scheme/restaurant_8.png',
+    'restaurant_scheme/restaurant_9.png',
+    'restaurant_scheme/restaurant_10.png',
+    'video_test_1.mp4'
+  ],
+  auto_preload: true
+};
+
+
+// הוספת preload ל-timeline
+timeline.push(preload);
+
+
+
+var trial_1 = {
+  type: 'fullscreen',
+  fullscreen_mode: true
+}
+timeline.push(trial_1);
+
+var trial_2 = {
+
+  type: 'instructions',
+    pages: [
+
+    '<span style="color: black; font-size: 24px"> Welcome to the experiment. Click next to begin.</span>',
+    '<span style="color: black; font-size: 24px"> In this experiment, you are asked to arrange four different pictures in the correct order.</span>'  +'<br/>'+ '<span style="color: black; font-size: 24px"> Do this by dragging the images from the top row and arranging them in the correct order in the bottom row.</span>'+'<br/>'+'<br/>'+'<br/>'+'<span style="color: black; font-size: 24px"> See an example in the video presented on the next page. </span>',
+    '<video src="video_test_1.mp4", autoplay="true" width="900" height="562.5"></video>', '<span style="color: black; font-size: 24px">Now try it by yourself.</span>'
+
+
+       
+      // '<img src="0_1.jpg" width="600" height="375"></img>'
+      ],
+
+    show_clickable_nav: true
+ 
+}
+timeline.push(trial_2);
+
+// Define the trial configuration
+var trial_try = {
+    type: 'order',
+    stimuli: [
+        'market_story/market_story_1',
+        'market_story/market_story_2',
+        'market_story/market_story_3',
+        'market_story/market_story_4',
+        'market_story/market_story_5',
+        'market_story/market_story_6',
+        'market_story/market_story_7',
+        'market_story/market_story_8',
+        'market_story/market_story_9',
+        'market_story/market_story_10' // Ensure this naming is correct (might usually be 'market_story_10')
+    ],
+    button_label: 'Continue when done',
+};
+
+// Function to randomize the stimuli array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+}
+
+// Randomize the stimuli before pushing to the timeline
+shuffleArray(trial_try.stimuli);
+timeline.push(trial_try);
+
+var trial_04 = {
+    type: 'instructions',
+    pages: [
+    '<span style="color: black; font-size: 24px"> Excellent.</span>' +'<br/>'+ '<span style="color: black; font-size: 24px"> In your free time, start the experiment.</span>'
+    ],
+    show_clickable_nav: true
+}
+timeline.push(trial_04);   
+
+// Define the trial configuration
+var trial_4 = {
+    type: 'order',
+    stimuli: [
+        'paris_story/paris_story_1',
+        'paris_story/paris_story_2',
+        'paris_story/paris_story_3',
+        'paris_story/paris_story_4',
+        'paris_story/paris_story_5',
+        'paris_story/paris_story_6',
+        'paris_story/paris_story_7',
+        'paris_story/paris_story_8',
+        'paris_story/paris_story_9',
+        'paris_story/paris_story_10' // Ensure this naming is correct (might usually be 'market_story_10')
+    ],
+    button_label: 'Continue when done',
+};
+
+// Function to randomize the stimuli array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+}
+
+// Randomize the stimuli before pushing to the timeline
+shuffleArray(trial_4.stimuli);
+timeline.push(trial_4);
+
+var trial_5 = {
+    type: 'order',
+    stimuli: [
+        'flight_scheme/flight_1',
+        'flight_scheme/flight_2',
+        'flight_scheme/flight_3',
+        'flight_scheme/flight_4',
+        'flight_scheme/flight_5',
+        'flight_scheme/flight_6',
+        'flight_scheme/flight_7',
+        'flight_scheme/flight_8',
+        'flight_scheme/flight_9',
+        'flight_scheme/flight_10' // Ensure this naming is correct (might usually be 'market_story_10')
+    ],
+    button_label: 'Continue when done',
+};
+
+// Function to randomize the stimuli array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+}
+
+// Randomize the stimuli before pushing to the timeline
+shuffleArray(trial_5.stimuli);
+timeline.push(trial_5);
+
+  
+    
+var trial_6 = {
+    type: 'order',
+    stimuli: [
+        'restaurant_scheme/restaurant_1',
+        'restaurant_scheme/restaurant_2',
+        'restaurant_scheme/restaurant_3',
+        'restaurant_scheme/restaurant_4',
+        'restaurant_scheme/restaurant_5',
+        'restaurant_scheme/restaurant_6',
+        'restaurant_scheme/restaurant_7',
+        'restaurant_scheme/restaurant_8',
+        'restaurant_scheme/restaurant_9',
+        'restaurant_scheme/restaurant_10' // Ensure this naming is correct (might usually be 'market_story_10')
+    ],
+    button_label: 'Continue when done',
+};
+
+// Function to randomize the stimuli array
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]]; // Swap elements
+    }
+}
+
+// Randomize the stimuli before pushing to the timeline
+shuffleArray(trial_6.stimuli);
+timeline.push(trial_6);
+
+
+    
+    var trial_32 = {
+
+type: 'survey-text',
+questions: [
+  {prompt: 'Please insert your age'}
+]
+}
+timeline.push(trial_32);
+
+var trial_33 = {
+
+  type: 'survey-text',
+questions: [
+  {prompt: 'please insert your gender (MALE/ FEMALE/ OTHER)'}
+]
+
+}
+timeline.push(trial_33);
+
+var trial_34 = {
+    type: 'instructions',
+    pages: [
+    '<span style="color: black; font-size: 24px"> You have completed the experiment.'  +'<br/>'+ 'The Completion Code is : AJFHBG897' +'<br/>'+  'Thank you for your participation!</span>'
+    ],
+    show_clickable_nav: true
+}
+timeline.push(trial_34);
+
+
+
+jsPsych.init({
+  timeline: [trial_1, trial_2, trial_try, trial_04, trial_4, trial_5, trial_6, trial_33, trial_34],
+  on_finish: function() {
+    jsPsych.data.get().localSave('csv', 'mydata.csv'); // Save data as CSV
+  }
+});
+
+  </script>
+</html>

@@ -73,10 +73,9 @@ jsPsych.plugins["order"] = (function() {
       body.removeChild(button);
     });
 
-    var end_times = [];
     var current_order = 0;
-    var rows = 1;
-    var columns = 10; // Adjusted to create a grid for 10 objects (2x5)
+    var rows = 2;
+    var columns = 5; // Adjusted to create a grid for 10 objects (2x5)
     var currTile;
     var otherTile;
     var turns = 0;
@@ -90,28 +89,12 @@ jsPsych.plugins["order"] = (function() {
       move_time_1 = start_time;
       stars_times.push(start_time);
 
-      display_element.innerHTML = `
-      <h2>Scrambled Order</h2>
-      <div id="pieces"></div>
-      <h2>Correct Order</h2>
-      <div id="board"></div>
-      <div style="display: flex; justify-content: space-between; gap: 5px; width: 100%; transform: translateX(-50px);">
-        <b></b>
-        <b>1</b>
-        <b>2</b>
-        <b>3</b>
-        <b>4</b>
-        <b>5</b>
-        <b>6</b>
-        <b>7</b>
-        <b>8</b>
-        <b>9</b>
-        <b>10</b>
-      </div>
-      <div id="btn1"></div>
-    `;
-    
-  
+      display_element.innerHTML = '<h2>Scrambled Order</h2>' +
+        '<div id="pieces"></div>' +  
+        '<h2>Correct Order</h2>' +
+        '<div id="board"></div>' +
+        '<b> 1 &nbsp &nbsp &nbsp &nbsp &nbsp 2 &nbsp &nbsp &nbsp &nbsp &nbsp 3 &nbsp &nbsp &nbsp &nbsp &nbsp 4 &nbsp &nbsp &nbsp &nbsp &nbsp 5 &nbsp &nbsp &nbsp &nbsp &nbsp 6 &nbsp &nbsp &nbsp &nbsp &nbsp 7 &nbsp &nbsp &nbsp &nbsp &nbsp 8 &nbsp &nbsp &nbsp &nbsp &nbsp 9 &nbsp &nbsp &nbsp &nbsp &nbsp 10 </b>' +
+        '<div id= "btn1"></div>';
 
       for (let r = 0; r < rows; r++) {
         for (let c = 0; c < columns; c++) {
@@ -152,7 +135,7 @@ jsPsych.plugins["order"] = (function() {
 
       for (let i = 0; i < pieces.length; i++) {
         let tile = document.createElement("img");
-        tile.src = "./images/" + trial.stimuli[i] + ".png";
+        tile.src = "./images/" + trial.stimuli[i] + ".jpg";
 
         tile.id = trial.stimuli[i];
         tiles_id.push(tile.id);
