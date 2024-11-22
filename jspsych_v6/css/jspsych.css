@@ -191,8 +191,8 @@ margin: 20px;
 
 
 #pieces {
-  width: 1010px;
-  height: 200px;
+  width: 760px;
+  height: 150px;
   border: 2px solid rgb(0, 0, 0);
   margin: 0 auto;
   display: flex;
@@ -200,14 +200,14 @@ margin: 20px;
 }
 
 #pieces img {
-  width: 200px;
-  height: 200px;
+  width: 150px;
+  height: 150px;
   border: 0.5px solid rgb(0, 0, 0);
 }
 
 #board {
-  width: 1010px;
-  height: 200px;
+  width: 760px;
+  height: 150px;
   border: 2px solid rgb(0, 0, 0);
   margin: 0 auto;
   display: flex;
@@ -215,8 +215,8 @@ margin: 20px;
 }
 
 #board img {
-  width:200px;
-  height: 200px;
+  width:150px;
+  height: 150px;
   border: 0.5px solid black;
 }
 
