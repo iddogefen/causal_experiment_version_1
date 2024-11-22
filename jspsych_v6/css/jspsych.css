@@ -28,7 +28,7 @@
 }
 
 .jspsych-display-element {
-  min-height: 100vh; /* Ensures the element covers the full viewport height */
+  min-height: auto; /* Ensures the element covers the full viewport height */
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Arranges elements properly */
@@ -193,7 +193,7 @@ margin: 20px;
 
 #pieces {
   width: 1010px;
-  height: 200px;
+  height: 100px;
   border: 2px solid rgb(0, 0, 0);
   margin: 0 auto;
   display: flex;
@@ -201,14 +201,14 @@ margin: 20px;
 }
 
 #pieces img {
-  width: 200px;
-  height: 200px;
+  width: 100px;
+  height: 100px;
   border: 0.5px solid rgb(0, 0, 0);
 }
 
 #board {
   width: 1010px;
-  height: 200px;
+  height: 100px;
   border: 2px solid rgb(0, 0, 0);
   margin: 0 auto;
   display: flex;
@@ -216,8 +216,8 @@ margin: 20px;
 }
 
 #board img {
-  width:200px;
-  height: 200px;
+  width:100px;
+  height: 100px;
   border: 0.5px solid black;
 }
 
