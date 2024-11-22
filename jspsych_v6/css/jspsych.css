@@ -9,8 +9,8 @@
 
 
 .fullscreen-content {
-  width: 100vw;  /* 100% of the viewport width */
-  height: 100vh; /* 100% of the viewport height */
+  width: 50vw;  /* 100% of the viewport width */
+  height: 50vh; /* 100% of the viewport height */
   position: fixed; /* Fixed position to cover the full screen */
   top: 0;         /* Start at the top */
   left: 0;        /* Start at the left */
