@@ -26,7 +26,18 @@
   <body>
 </body>
   <script>
+    // Adjust content scaling dynamically
+    function scaleContent() {
+      const content = document.querySelector(".jspsych-display-element");
+      if (content) {
+        const scale = Math.min(window.innerWidth / content.offsetWidth, window.innerHeight / content.offsetHeight);
+        content.style.transform = `scale(${scale})`;
+        content.style.transformOrigin = "top center";
+      }
+    }
 
+    // Attach resize event to adjust scaling
+    window.addEventListener("resize", scaleContent);
 var data_folder             = 'data/order/'
 //var int_data_folder         = 'data/Interactive_data/'
 var tools_folder            = 'Tools'
@@ -213,6 +224,7 @@ jsPsych.data.addProperties({
 		console.log("Generated csv:", data_folder+subject_id+"_<date_time>.csv");
 	  }
 	});
+    scaleContent();
 
   </script>
 </html>
