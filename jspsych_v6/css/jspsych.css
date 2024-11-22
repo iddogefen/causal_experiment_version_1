@@ -1,238 +1,113 @@
-/*
- * CSS for jsPsych experiments.
- *
- * This stylesheet provides minimal styling to make jsPsych
- * experiments look polished without any additional styles.
- */
-
- @import url(https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,400,700);
-
-
-.fullscreen-content {
-  width: 100vw;  /* 100% of the viewport width */
-  height: 100vh; /* 100% of the viewport height */
-  position: fixed; /* Fixed position to cover the full screen */
-  top: 0;         /* Start at the top */
-  left: 0;        /* Start at the left */
-  z-index: 9999;  /* Ensure it's on top of other elements */
-  background-color: red; /* Optional: Set a background color */
-}
-*/
-
-.hide_cursor {
-    cursor: none;
-}
-.stimulus_size {
-    padding: 30%;
-}
-
-.jspsych-display-element {
-  min-height: 50vh; /* Ensures the element covers the full viewport height */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Arranges elements properly */
-}
+/* General body styling to apply a zoom effect */
 body {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh; /* Ensures the body stretches to the full viewport height */
-  margin: 0;
+  transform: scale(0.9); /* Scales the entire body to 90% */
+  transform-origin: top center; /* Ensures scaling is centered at the top */
+  margin: 0; /* Removes any default margin around the body */
+  padding: 0; /* Removes any default padding */
+  overflow: hidden; /* Prevents unnecessary scrolling */
 }
-container {
-  margin-top: 50px; /* Adds space above the container */
-  margin-bottom: 50px; /* Adds space below the container */
-}
-/*
- .jspsych-display-element {
-   display: flex;
-   flex-direction: column;
-   overflow-y: auto;
- }
-*/
- .jspsych-display-element:focus {
-   outline: none;
- }
 
- .jspsych-content-wrapper {
-   display: flex;
-   margin: auto;
-   flex: 1 1 100%;
-   width: 100%;
- }
-
- .jspsych-content {
-   max-width: 95%; /* this is mainly an IE 10-11 fix */
-   text-align: center;
-   margin: auto; /* this is for overflowing content */
- }
-
- .jspsych-top {
-   align-items: flex-start;
- }
-
- .jspsych-middle {
-   align-items: center;
- }
-
-/* fonts and type */
-
+/* Ensuring the jsPsych display element fits the viewport properly */
 .jspsych-display-element {
-  font-family: 'Open Sans', 'Arial', sans-serif;
-  font-size: 18px;
-  line-height: 1.6em;
+  min-height: 90vh; /* Sets minimum height to 90% of the viewport */
+  max-height: 100vh; /* Prevents the element from exceeding the viewport height */
+  overflow-y: auto; /* Enables vertical scrolling if content exceeds the height */
+  display: flex; /* Uses Flexbox for layout */
+  flex-direction: column; /* Aligns children elements in a vertical stack */
+  justify-content: space-between; /* Distributes space evenly between elements */
 }
 
-/* Form elements like input fields and buttons */
-
-.jspsych-display-element input[type="text"] {
-  font-family: 'Open Sans', 'Arial', sans-serif;
-  font-size: 14px;
+/* Ensures images and interactive content are responsive */
+img {
+  max-width: 100%; /* Prevents images from exceeding their container's width */
+  height: auto; /* Maintains the aspect ratio of images */
 }
 
-/* borrowing Bootstrap style for btn elements, but combining styles a bit */
-.jspsych-btn {
-  display: inline-block;
-  padding: 6px 12px;
-  margin: 0px;
-  font-size: 14px;
-  font-weight: 400;
-  font-family: 'Open Sans', 'Arial', sans-serif;
-  cursor: pointer;
-  line-height: 1.4;
-  text-align: center;
-  white-space: nowrap;
-  vertical-align: middle;
-  background-image: none;
-  border: 1px solid transparent;
-  border-radius: 4px;
-  color: #333;
-  background-color: #fff;
-  border-color: #ccc;
+/* Styling for the header or main title to make it responsive */
+h1, h2, h3 {
+  text-align: center; /* Centers all headers */
+  margin: 0; /* Removes default margins */
+  padding: 10px; /* Adds space around the text */
+  font-size: 2rem; /* Adjusts font size to make it prominent */
 }
 
-.jspsych-btn:hover {
-  background-color: #ddd;
-  border-color: #aaa;
-}
-
-.jspsych-btn:disabled {
-  background-color: #eee;
-  color: #aaa;
-  border-color: #ccc;
-  cursor: not-allowed;
-}
-
-.square {
-  height: 150px;
-  width: 150px;
-  background-color: #ffffff;
-  border: solid 3px #000000;
-  margin: 10px;
-}
-
+/* Styling for container sections to ensure proper alignment */
 .container {
-  height: 10vh;
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: 20px;
+  display: flex; /* Uses Flexbox for layout */
+  flex-wrap: wrap; /* Allows items to wrap if there's not enough space */
+  justify-content: center; /* Centers all items horizontally */
+  align-items: center; /* Centers all items vertically */
+  margin: 20px auto; /* Adds margin around the container and centers it */
+  width: 90%; /* Ensures the container doesn't exceed 90% of the screen width */
 }
 
-.orders-render span{
-  display:inline-block;
-  width: 200px;
+/* Styling for grid-based elements like the order grid */
+.grid-container {
+  display: grid; /* Enables grid layout */
+  grid-template-columns: repeat(5, 1fr); /* Creates 5 equal columns */
+  gap: 10px; /* Adds spacing between grid items */
+  margin: 20px auto; /* Centers the grid and adds vertical spacing */
+  width: 90%; /* Ensures the grid doesn't exceed 90% of the screen width */
 }
 
-.drop-targets {
-display: flex;
-flex-direction: row;
-justify-content: space-around;
-align-items: center;
-margin: 20px;
+/* Styling for grid items */
+.grid-item {
+  border: 2px solid black; /* Adds a black border around items */
+  padding: 10px; /* Adds padding inside each grid item */
+  text-align: center; /* Centers text within the grid items */
+  font-size: 1.2rem; /* Sets font size for grid item content */
 }
 
-/* jsPsych progress bar */
+/* Button styling for a consistent look */
+button {
+  padding: 10px 20px; /* Adds padding around the button */
+  font-size: 1rem; /* Sets a readable font size */
+  border: 1px solid #ccc; /* Adds a light gray border */
+  border-radius: 5px; /* Rounds the corners slightly */
+  background-color: #f0f0f0; /* Sets a light gray background */
+  cursor: pointer; /* Changes the cursor to a pointer when hovering */
+}
 
+button:hover {
+  background-color: #ddd; /* Changes the background color when hovering */
+}
+
+button:disabled {
+  background-color: #eee; /* Gray out the button when disabled */
+  color: #aaa; /* Changes text color when disabled */
+  cursor: not-allowed; /* Changes cursor to indicate the button is not clickable */
+}
+
+/* Progress bar styling */
 #jspsych-progressbar-container {
-  color: #555;
-  border-bottom: 1px solid #dedede;
-  background-color: #f9f9f9;
-  margin-bottom: 1em;
-  text-align: center;
-  padding: 8px 0px;
-  width: 100%;
-  line-height: 1em;
+  width: 100%; /* Takes the full width of the container */
+  background-color: #f9f9f9; /* Sets a light background color */
+  border-bottom: 1px solid #dedede; /* Adds a bottom border */
+  text-align: center; /* Centers content inside the progress bar */
+  padding: 10px 0; /* Adds padding above and below the content */
 }
-#jspsych-progressbar-container span {
-  font-size: 14px;
-  padding-right: 14px;
-}
+
 #jspsych-progressbar-outer {
-  background-color: #eee;
-  width: 50%;
-  margin: auto;
-  height: 14px;
-  display: inline-block;
-  vertical-align: middle;
-  box-shadow: inset 0 1px 2px rgba(0,0,0,0.1);
+  background-color: #eee; /* Sets the background color of the progress bar */
+  width: 50%; /* Limits the width to 50% of the screen */
+  margin: auto; /* Centers the progress bar horizontally */
+  height: 14px; /* Sets the height of the progress bar */
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow */
 }
+
 #jspsych-progressbar-inner {
-  background-color: #aaa;
-  width: 0%;
-  height: 100%;
+  background-color: #aaa; /* Sets the inner bar's color */
+  width: 0%; /* Starts with 0% width, updated dynamically during the experiment */
+  height: 100%; /* Matches the height of the outer bar */
 }
 
-/* Control appearance of jsPsych.data.displayData() */
-#jspsych-data-display {
-  text-align: left;
+/* Styling for draggable images or pieces */
+#pieces, #board {
+  display: flex; /* Uses Flexbox for layout */
+  flex-wrap: wrap; /* Allows wrapping of child elements */
+  justify-content: center; /* Centers the pieces in the container */
+  border: 2px solid black; /* Adds a black border around the container */
+  margin: 20px auto; /* Centers the container and adds spacing */
+  width: 80%; /* Ensures the container doesn't exceed 80% of the screen width */
 }
-
-
-
-#pieces {
-  width: 760px;
-  height: 150px;
-  border: 2px solid rgb(0, 0, 0);
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-#pieces img {
-  width: 150px;
-  height: 150px;
-  border: 0.5px solid rgb(0, 0, 0);
-}
-
-#board {
-  width: 760px;
-  height: 150px;
-  border: 2px solid rgb(0, 0, 0);
-  margin: 0 auto;
-  display: flex;
-  flex-wrap: wrap;
-}
-
-#board img {
-  width:150px;
-  height: 150px;
-  border: 0.5px solid black;
-}
-
-
-#btn1 {
-  position: relative;
-  width: 50px;
-  height: 25px;
-  position: relative;
-  top: -25px;
-  position: relative;
-  left: 0px;
-  margin-left:auto;
-  margin-right:auto;
-  width:200px;
-
-}
-
 
