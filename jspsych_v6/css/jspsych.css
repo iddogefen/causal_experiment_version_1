@@ -215,8 +215,8 @@ margin: 20px;
 }
 
 #board img {
-  width:150px;
-  height: 150px;
+  width:15px;
+  height: 15px;
   border: 0.5px solid black;
 }
 
@@ -231,7 +231,7 @@ margin: 20px;
   left: 0px;
   margin-left:auto;
   margin-right:auto;
-  width:10px;
+  width:200px;
 
 }
 
