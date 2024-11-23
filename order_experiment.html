@@ -13,10 +13,9 @@
     <script src="Tools/jspsych-order.js"></script>
     <script src="Tools/jQuery.js"></script>
     <script src="jspsych_v6/plugins/jspsych-survey-text.js"></script>
-	<link rel="stylesheet" href="jspsych_v6/css/jspsych.css">
-
     <!--<script src="jspsych/plugins/jspsych-preload.js"></script>-->
 
+    <link rel="stylesheet" href="jspsych_v6/css/jspsych.css">
 
 
 
@@ -27,21 +26,6 @@
   <body>
 </body>
   <script>
-    // Adjust content scaling dynamically
-	function scaleContent() {
-  const content = document.querySelector(".jspsych-display-element");
-  if (content) {
-    const scaleWidth = window.innerWidth / content.offsetWidth;
-    const scaleHeight = window.innerHeight / content.offsetHeight;
-    const scale = Math.min(scaleWidth, scaleHeight); // Scale to fit both width and height
-    content.style.transform = `scale(${scale})`;
-    content.style.transformOrigin = "top center";
-  }
-}
-
-// Call scaling function on load and resize
-window.addEventListener("resize", scaleContent);
-window.addEventListener("load", scaleContent);
 
 var data_folder             = 'data/order/'
 //var int_data_folder         = 'data/Interactive_data/'
@@ -203,13 +187,13 @@ jsPsych.data.addProperties({
 	}
 	timeline.push(trial_32);
 
-	var trial_335 = {
+	var trial_33 = {
 		  type: 'survey-text',
 		questions: [
 		  {prompt: 'please insert your gender (MALE/ FEMALE/ OTHER)'}
 		]
 	}
-	timeline.push(trial_335);
+	timeline.push(trial_33);
 
 	var trial_34 = {
 		type: 'instructions',
@@ -229,7 +213,6 @@ jsPsych.data.addProperties({
 		console.log("Generated csv:", data_folder+subject_id+"_<date_time>.csv");
 	  }
 	});
-	scaleContent();
 
   </script>
 </html>
