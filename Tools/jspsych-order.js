@@ -47,103 +47,92 @@ jsPsych.plugins["order"] = (function() {
     var finalImagePositions = [];
 
     button.addEventListener("click", function() {
-      const end_time = performance.now();
-      const rt = Math.round(end_time - stars_times);
-      end_times.push(end_time);
-      let final_locations = [];
-
-      const images = document.querySelectorAll('#board img');
-      finalImagePositions = [];
-
-      images.forEach(image => {
-        const rect = image.getBoundingClientRect();
-        finalImagePositions.push({
-          src: image.src,
-          x: Math.round(rect.x),
-          y: Math.round(rect.y)
-        });
-      });
-
-      finalImagePositions.sort((a, b) => a.x - b.x);
-      const trial_data = {
-        initial_locations: JSON.stringify(tiles_id),
-        moves: JSON.stringify(moves),
-        final_locations_3: JSON.stringify(finalImagePositions),
-        number_of_moves: JSON.stringify(turns),
-        rt: JSON.stringify(rt)
-      };
-
-      jsPsych.finishTrial(trial_data);
-      body.removeChild(button);
+      // Check if exactly 10 items are placed on the board
+      if (isOrderComplete()) {
+        const end_time = performance.now();
+        const rt = Math.round(end_time - stars_times); // Calculate reaction time
+        end_times.push(end_time);
+    
+        // Collect trial data
+        const trial_data = {
+          initial_locations: JSON.stringify(tiles_id),
+          moves: JSON.stringify(moves),
+          final_locations_3: JSON.stringify(finalImagePositions),
+          number_of_moves: JSON.stringify(turns),
+          rt: JSON.stringify(rt)
+        };
+    
+        // End the trial and save data
+        jsPsych.finishTrial(trial_data);
+        body.removeChild(button);
+      } else {
+        alert("Please arrange all 10 items on the board before continuing.");
+      }
     });
-
-    var end_times = [];
-    var current_order = 0;
-    var rows = 1;
-    var columns = 10; // Adjusted to create a grid for 10 objects (2x5)
-    var currTile;
-    var otherTile;
-    var turns = 0;
-    var rts = [];
-    var tiles_id = [];
-    let stars_times = [];
-    let moves = [];
-
-function show_stimulus(order) {
-  var start_time = performance.now();
-  move_time_1 = start_time;
-  stars_times.push(start_time);
-
-display_element.innerHTML = `
-    <div style="margin-top: 0px; ">
-        <p style="margin: 0; padding: 0; font-size:25px;text-align:left ">Scrambled Order</p>
-        <div id="pieces" xstyle="margin-bottom: 200px;"></div>
-    </div>
-    <div style="margin-top: 0px;">
-			<div>
-	    			<table id="tbl" style="width=100%;table-layout: xfixed;"><tr style="flex;font-size:25px ;width=100%">
-						<td style="width: 50%;margin: 0; padding: 0;">
-							<p style="margin: 0; padding: 0; font-size:25px  text-align:left;">Correct Order&nbsp;&nbsp;&nbsp;</p>
-						</td>
-
-						<td id="td2" style="width: 50%;">
-						</td>
-	    			</tr></table>
-		</div>
-        <div id="board" style="margin: 0;"></div>
-    </div>
-  `;
-	 // Get references to the elements
-	 var divbut = document.getElementById('divbut');
-	 var parent = document.getElementById('td2');
-
-	 // Move the child element to the new parent
-	 parent.appendChild(divbut);
-
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < columns; c++) {
-      let tile = document.createElement("img");
-	  //alert(tile.src);
-      tile.addEventListener("dragstart", dragStart);
+    
+    // Function to check if exactly 10 objects are placed on the board
+    function isOrderComplete() {
+      const imagesOnBoard = document.querySelectorAll('#board img'); // Select all images on the board
+      let filledSlots = 0;
+      imagesOnBoard.forEach(img => {
+        if (!img.src.includes("blank")) { // Check if the slot is not empty
+          filledSlots++;
+        }
+      });
+      return filledSlots === 10; // Return true if there are exactly 10 items
     }
-  }
-  var numtext=	[1,2,3,4,5,6,7,8,9,10];
-
-  for (let r = 0; r < rows; r++) {
-    for (let c = 0; c < columns; c++) {
-      let tile = document.createElement("img");
-      let tile_blank = document.createElement("img");
-      tile_blank.src = "./images/blank.jpg";
-      tile.src = "./images/blank"+String(numtext[r*columns+c])+".jpg";
-
-      tile.addEventListener("dragstart", dragStart);
-      tile.addEventListener("dragover", dragOver);
-      tile.addEventListener("dragenter", dragEnter);
-      tile.addEventListener("dragleave", dragLeave);
-      tile.addEventListener("drop", dragDrop);
-      tile.addEventListener("dragend", dragEnd);
-
-      document.getElementById("board").append(tile);
+    
+    // Function to display the stimulus and setup the board
+    function show_stimulus(order) {
+      var start_time = performance.now();
+      move_time_1 = start_time; // Record the start time of the trial
+      stars_times.push(start_time);
+    
+      // Setup the HTML structure for the board and pieces
+      display_element.innerHTML = `
+        <div style="margin-top: 0px; ">
+            <p style="margin: 0; padding: 0; font-size:25px;text-align:left ">Scrambled Order</p>
+            <div id="pieces"></div>
+        </div>
+        <div style="margin-top: 0px;">
+            <div>
+                <table id="tbl" style="width=100%;table-layout: xfixed;">
+                    <tr style="flex;font-size:25px ;width=100%">
+                        <td style="width: 50%;margin: 0; padding: 0;">
+                            <p style="margin: 0; padding: 0; font-size:25px  text-align:left;">Arrange all items&nbsp;&nbsp;&nbsp;</p>
+                        </td>
+                        <td id="td2" style="width: 50%;"></td>
+                    </tr>
+                </table>
+            </div>
+            <div id="board" style="margin: 0;"></div>
+        </div>
+      `;
+    
+      // Move the button to the correct location on the page
+      var divbut = document.getElementById('divbut');
+      var parent = document.getElementById('td2');
+      parent.appendChild(divbut);
+    
+      // Loop through stimuli and add them to the display
+      for (let i = 0; i < trial.stimuli.length; i++) {
+        let tile = document.createElement("img");
+        tile.src = `./images/${trial.stimuli[i]}.png`; // Set the image source
+        tile.id = `stimulus_${i}`; // Assign a unique ID to each stimulus
+        tiles_id.push(tile.id);
+    
+        // Add drag-and-drop functionality to the tiles
+        tile.addEventListener("dragstart", dragStart);
+        tile.addEventListener("dragover", dragOver);
+        tile.addEventListener("dragenter", dragEnter);
+        tile.addEventListener("dragleave", dragLeave);
+        tile.addEventListener("drop", dragDrop);
+        tile.addEventListener("dragend", dragEnd);
+    
+        document.getElementById("pieces").append(tile); // Add the tile to the pieces section
+      }
+    }
+    
     }
   }
 
@@ -176,7 +165,6 @@ display_element.innerHTML = `
 
     document.getElementById("pieces").append(tile);
   }
-}
     function dragStart() {
       currTile = this;
     }
