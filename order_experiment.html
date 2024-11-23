@@ -107,14 +107,18 @@ jsPsych.data.addProperties({
 	timeline.push(trial_1);
 
 	var trial_2 = {
-	  type: 'instructions',
-		pages: [
-		'<span style="color: black; font-size: 24px"> Welcome to the experiment. Click next to begin.</span>',
-		'<span style="color: black; font-size: 24px"> In this experiment, you are asked to arrange four different pictures in the correct order.</span>'  +'<br/>'+ '<span style="color: black; font-size: 24px"> Do this by dragging the images from the top row and arranging them in the correct order in the bottom row.</span>'+'<br/>'+'<br/>'+'<br/>'+'<span style="color: black; font-size: 24px"> See an example in the video presented on the next page. </span>',
-		'<video src="video_test_1.mp4", autoplay="true" width="900" height="562.5"></video>', '<span style="color: black; font-size: 24px">Now try it by yourself.</span>'
-		  ],
-		show_clickable_nav: true
-	}
+  type: 'instructions',
+  pages: [
+    '<span style="color: black; font-size: 24px"> Welcome to the experiment. Click next to begin.</span>',
+    '<span style="color: black; font-size: 24px"> In this experiment, you are asked to arrange different pictures in the correct order.</span>' + 
+    '<br/><span style="color: black; font-size: 24px"> Do this by dragging the images from the top row and arranging them in the correct order in the bottom row.</span>' + 
+    '<br/><br/><br/><span style="color: black; font-size: 24px"> If you are unsure, make your best guess about the correct order.</span>',
+    '<span style="color: black; font-size: 24px"> See an example in the video presented on the next page. </span>',
+    '<video src="video_test_1.mp4", autoplay="true" width="900" height="562.5"></video>',
+    '<span style="color: black; font-size: 24px">Now try it by yourself.</span>'
+  ],
+  show_clickable_nav: true
+};
 	timeline.push(trial_2);
 
 	// Define the trial configuration
