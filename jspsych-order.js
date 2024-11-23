@@ -35,14 +35,11 @@ jsPsych.plugins["order"] = (function() {
   }
 
   plugin.trial = function(display_element, trial) {
-	var divbut = document.createElement("div");
-	divbut.id = "divbut"; // Set an ID for the div
     var button = document.createElement("button");
     button.innerHTML = "Click when done";
 
     var body = document.getElementsByTagName("body")[0];
-	divbut.appendChild(button);
-    body.appendChild(divbut);
+    body.appendChild(button);
     button.id = "btn1";
     var finalImagePositions = [];
 
@@ -95,46 +92,44 @@ function show_stimulus(order) {
   stars_times.push(start_time);
 
 display_element.innerHTML = `
-    <div style="margin-top: 0px; ">
-        <p style="margin: 0; padding: 0; font-size:25px;text-align:left ">Scrambled Order</p>
-        <div id="pieces" xstyle="margin-bottom: 200px;"></div>
+    <div style="margin-top: -200px;">
+        <h2 style="margin-bottom: 0px;">Scrambled Order</h2>
+        <div id="pieces" style="margin-bottom: 200px;"></div>
     </div>
     <div style="margin-top: 0px;">
-			<div>
-	    			<table id="tbl" style="width=100%;table-layout: xfixed;"><tr style="flex;font-size:25px ;width=100%">
-						<td style="width: 50%;margin: 0; padding: 0;">
-							<p style="margin: 0; padding: 0; font-size:25px  text-align:left;">Correct Order&nbsp;&nbsp;&nbsp;</p>
-						</td>
-
-						<td id="td2" style="width: 50%;">
-						</td>
-	    			</tr></table>
-		</div>
+        <h2 style="margin: 0;">Correct Order</h2>
         <div id="board" style="margin: 0;"></div>
+        <div style="display: flex; justify-content: space-between; gap: 5px; width: 80%; transform: translateX(100px) translateY(-100px);">
+            <b>1</b>
+            <b>2</b>
+            <b>3</b>
+            <b>4</b>
+            <b>5</b>
+		</div>
+        <div style="display: flex; justify-content: space-between; gap: 5px; width: 80%; transform: translateX(100px) translateY(100px);">
+            <b>6</b>
+            <b>7</b>
+            <b>8</b>
+            <b>9</b>
+            <b>10</b>
+        </div>
     </div>
+    <div id="btn1"></div>
   `;
-	 // Get references to the elements
-	 var divbut = document.getElementById('divbut');
-	 var parent = document.getElementById('td2');
 
-	 // Move the child element to the new parent
-	 parent.appendChild(divbut);
 
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < columns; c++) {
       let tile = document.createElement("img");
-	  //alert(tile.src);
+      tile.src = "images/blank.jpg";
       tile.addEventListener("dragstart", dragStart);
     }
   }
-  var numtext=	[1,2,3,4,5,6,7,8,9,10];
 
   for (let r = 0; r < rows; r++) {
     for (let c = 0; c < columns; c++) {
       let tile = document.createElement("img");
-      let tile_blank = document.createElement("img");
-      tile_blank.src = "./images/blank.jpg";
-      tile.src = "./images/blank"+String(numtext[r*columns+c])+".jpg";
+      tile.src = "./images/blank.jpg";
 
       tile.addEventListener("dragstart", dragStart);
       tile.addEventListener("dragover", dragOver);
@@ -201,11 +196,8 @@ display_element.innerHTML = `
       }
       let currImg = currTile.src;
       let otherImg = otherTile.src;
-	  if (otherImg.includes("blank"))// || (currTile.parentElement.id=="board" && otherTile.parentElement.id=="board"))
-			currTile.src = "./images/blank.jpg";
-		else
-			currTile.src = otherImg;
-	   otherTile.src = currImg;
+      currTile.src = otherImg;
+      otherTile.src = currImg;
 
       const rect_2 = otherTile.getBoundingClientRect();
       var move_time_2 = performance.now();
