@@ -65,7 +65,7 @@ container {
  .jspsych-content {
    max-width: 195%; /* this is mainly an IE 10-11 fix */
    text-align: center;
-   /* xheight: 70vh;
+   xheight: 70vh;
    margin: auto; /* this is for overflowing content */
  }
 
@@ -200,7 +200,7 @@ margin: 20px;
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-    /*#background-color: lightgreen;*/
+    /*background-color: lightgreen;*/
 
 }
 
@@ -213,44 +213,40 @@ margin: 20px;
 #board {
   width: 100%;
   height: 100%;
- /* xborder: 2px solid rgb(0, 0, 0); */
+  xborder: 2px solid rgb(0, 0, 0);
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
-  /*xbackground-color: lightblue; */
+  xbackground-color: lightblue;
 }
 
 #board img {
   width: 19.5%;
   height: 50%;
-  border: 0.5px solid rgb(0,222,0);
+  border: 0.5px solid rgb(0, 0, 0);
 }
 
 
 #btn1 {
-    position: relative;
-    font-size: 25px;
-    height: 25px;
-  
-    /* x-properties for reference or future use */
-    /* xheight: 25px; */
-    /* xtop: -25px; */
-    /* xposition: relative; */
-    /* xleft: 0px; */
-    /* xmargin-left: auto; */
-    /* xmargin-right: auto; */
-
-    justify-content: center;
-    width: 100%;
-    height: 40px;
-  
+  position: relative;
+  font-size: 25px;
+  xheight: 25px;
+  xposition: relative;
+  xtop: -25px;
+  xposition: relative;
+  xleft: 0px;
+  xmargin-left:auto;
+  xmargin-right:auto;
+  justify-content: center;
+  width:100%;
+  height: 40px;
 
 }
 
 
 #divbut {
- /*align:right;*/
+align:right;
 justify-content: right; 
-   /*xmargin-left:auto;*/
-   /*xmargin-right:auto;*/
+  xmargin-left:auto;
+  xmargin-right:auto;
 }
