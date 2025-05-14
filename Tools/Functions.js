@@ -132,7 +132,7 @@ function getTimeline(seq,p1,p2,choices,num,part,slow) {
 	 	duration_response		= 1800;
 	}
 
-	// create a "trial_10" timeline
+	// create a "trial_10" timeline 8
     var images = retrieveImageNames('images/' + seq[0]);
 
     // Ensure num does not exceed the number of available images
