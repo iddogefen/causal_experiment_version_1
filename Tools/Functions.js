@@ -100,7 +100,7 @@ function getAllSequences(groups) {
 						rval_array.push(random);
 						seqs.push(rval_array);
 					}
-					break;
+					//break;
 				}
 			}
 		}
