@@ -1,0 +1,114 @@
+/* Reset default browser styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body, html {
+  width: 100%;
+  height: 100%;
+  overflow: hidden; /* Prevent scrolling */
+  font-family: Arial, sans-serif; /* Default font */
+  zoom: 0.75; /* Adjusts zoom to 75% */
+}
+
+/* Main container for jsPsych display */
+.jspsych-display-element {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centers content vertically */
+  align-items: center; /* Centers content horizontally */
+  overflow: hidden; /* Prevents scrolling */
+}
+
+/* Section for scrambled and correct order */
+#pieces, #board {
+  display: flex;
+  flex-wrap: wrap; /* Allows items to wrap into multiple rows */
+  justify-content: center; /* Centers items horizontally */
+  align-items: flex-start; /* Aligns items at the top */
+  margin: 10px auto; /* Adds spacing around */
+  max-width: 90%; /* Restricts width to 90% of the screen */
+  height: auto; /* Ensures dynamic height adjustment */
+}
+
+/* Styling for the images inside the grid */
+#pieces img, #board img {
+  width: 90px; /* Sets the width of images */
+  height: auto; /* Adjusts height proportionally */
+  margin: 5px; /* Adds space between images */
+  cursor: grab; /* Shows dragging icon on hover */
+  border: 1px solid #ccc; /* Adds a light border around images */
+  border-radius: 3px; /* Rounds the corners slightly */
+}
+
+/* Titles above sections */
+h2 {
+  font-size: 24px; /* Adjusts title size */
+  text-align: center; /* Centers text */
+  margin-bottom: 20px; /* Adds space below the title */
+  color: black; /* Ensures consistent color */
+}
+
+/* Button styling */
+button {
+  padding: 10px 20px; /* Adjusts button size */
+  font-size: 16px; /* Adjusts font size */
+  border: 1px solid #ccc; /* Adds a border */
+  border-radius: 5px; /* Rounds the button's corners */
+  background-color: #f0f0f0; /* Light grey background */
+  cursor: pointer; /* Shows a pointer on hover */
+  margin-top: 20px; /* Adds spacing above the button */
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #ddd; /* Changes background on hover */
+}
+
+/* Number labels (1-10) under the grid */
+#board div {
+  display: flex;
+  justify-content: space-between; /* Even spacing between numbers */
+  gap: 5px; /* Adds space between items */
+  width: 100%; /* Spans the full width */
+  text-align: center; /* Centers numbers within each item */
+}
+
+#board b {
+  font-size: 18px; /* Adjusts size of numbers */
+  color: black; /* Ensures numbers are visible */
+}
+
+/* Dynamic scaling for larger screens */
+@media (min-width: 768px) {
+  #pieces img, #board img {
+    width: 120px; /* Larger image size on larger screens */
+  }
+
+  h2 {
+    font-size: 28px; /* Larger titles on bigger screens */
+  }
+
+  button {
+    font-size: 18px; /* Larger button text */
+  }
+}
+
+/* Dynamic scaling for smaller screens */
+@media (max-width: 768px) {
+  #pieces img, #board img {
+    width: 70px; /* Smaller image size for smaller screens */
+  }
+
+  h2 {
+    font-size: 20px; /* Smaller titles */
+  }
+
+  button {
+    font-size: 14px; /* Smaller button text */
+  }
+}
