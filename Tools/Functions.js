@@ -216,25 +216,27 @@ function shuffle(array) {
     return array;
 }
 
-    function getTimeline_Order(seq,num,slow) {
+  function getTimeline_Order(seq, num, slow) {
     var images = retrieveImageNames('images/' + seq[0]);
-	//randomize
-	if (seq[1]==true) images=shuffle(images.slice(1));
+    
+    // במקום השורה הישנה, פשוט נגדיר את images ללא התמונה הראשונה (הכותרת)
+    // אבל בלי לערבב אותן
+    images = images.slice(1); 
 
     // Ensure num does not exceed the number of available images
+	 // Ensure num does not exceed the number of available images
     num = Math.min(num, images.length - 1);
 
-    // Create timeline_variables dynamically based on num
+    // המשך הקוד כרגיל...
     var timelineVariables = [];
     for (var i = 0; i <= num; i++) {
-		img= images[i].replace(/\\/g, "/");
-		img=img.replace(/images\//g, "");
-		img=img.replace(".png","");
-		img=img.replace(".png","");
-		//img=img.replace(/^.*?\//,"");
+        img = images[i].replace(/\\/g, "/");
+        img = img.replace(/images\//g, "");
+        img = img.replace(".png","");
+        img = img.replace(".png","");
         timelineVariables.push(img);
     }
-	  return(timelineVariables);
+    return(timelineVariables);
 }
 
 
